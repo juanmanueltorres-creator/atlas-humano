@@ -48,3 +48,15 @@ El proyecto diferencia **dato, interpretación editorial y pregunta abierta**. N
 ## Alcance
 
 Obra de divulgación artística y pensamiento crítico. No es un sistema de decisión pública ni un producto comercial. Las interpretaciones son editoriales, las cifras están fechadas y las fuentes se ofrecen para verificar o profundizar.
+
+## Sonido opcional (5.3)
+
+La opción **♫ Escuchar** añade paisaje sonoro generado localmente con Web Audio API y lectura de capítulos o escenas del manifiesto mediante `SpeechSynthesis` del navegador.
+
+- No inicia audio sin una acción del visitante.
+- La voz, el ritmo y el volumen pueden ajustarse; la calidad de voz depende del navegador y de las voces instaladas.
+- La música reduce su volumen durante la narración.
+- Los textos siempre permanecen disponibles sin sonido; no se recopilan ni envían grabaciones.
+- El caleidoscopio y la navegación siguen funcionando sin audio. En segundo plano, la reproducción se detiene.
+
+**Limitación:** esta versión utiliza síntesis de voz del navegador y no audio profesional grabado. Puede haber diferencias entre dispositivos. No representa una narración sincronizada con subtítulos.
