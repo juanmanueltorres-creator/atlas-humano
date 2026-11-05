@@ -1,0 +1,1079 @@
+{
+  "edition": "ATLAS HUMANO 5.0",
+  "date": "2026-11-05",
+  "notes": "Las coordenadas son escenarios editoriales salvo vínculo geográfico explícito. Fuente y período de cada cifra se indican por capítulo.",
+  "new_stories": [
+    {
+      "id": "GEO-01",
+      "part": "I",
+      "kicker": "LA EDAD DE LA PIEDRA",
+      "category": "I",
+      "place": "Islandia",
+      "country": "Islandia",
+      "lat": 64.9631,
+      "lon": -19.0208,
+      "zoom": 6,
+      "accent": "#cfdfed",
+      "question": "¿Cuánto puede enseñarnos una piedra sobre nuestro tiempo?",
+      "caption": "Las rocas son archivos; no comienzan cuando llegamos a mirarlas.",
+      "lead": "Antes de cualquier frontera, idioma o ciudad, ya existía una historia de materia, calor y movimiento.",
+      "paragraphs": [
+        "La edad de la Tierra se estima en unos 4.540 millones de años a partir de sistemas isotópicos y materiales del sistema solar. No se trata de fechar la piedra más antigua y declarar que allí comenzó todo.",
+        "En Islandia, la tectónica sigue escribiendo páginas nuevas. La corteza se abre, el magma asciende y el territorio cambia a otra velocidad. El paisaje no es un escenario fijo en el que actuamos: también es un proceso."
+      ],
+      "stat": "4.540 millones de años",
+      "short": "Las rocas son archivos; no comienzan cuando llegamos a mirarlas.",
+      "period": "Edad estimada de la Tierra",
+      "coverage": "Mundo",
+      "editorial": "La escala geológica reduce nuestra importancia temporal sin reducir nuestra responsabilidad actual.",
+      "question2": "¿Qué decisiones de apenas unas décadas dejarán señales legibles dentro de milenios?",
+      "possibility": "Explorar geociencias, riesgo volcánico, planificación territorial y preservación del patrimonio geológico.",
+      "bridge": "",
+      "nuance": "Edad radiométrica con incertidumbre; un lugar tectónicamente activo no permite fechar por sí mismo todo el planeta. Lugar de exploración; la cifra es mundial y no caracteriza por sí sola este territorio.",
+      "sources": [
+        [
+          "USGS · Edad de la Tierra",
+          "https://pubs.usgs.gov/gip/geotime/age.html"
+        ]
+      ],
+      "api": null,
+      "wb": null
+    },
+    {
+      "id": "GEO-02",
+      "part": "I",
+      "kicker": "EL PLANETA AZUL",
+      "category": "I",
+      "place": "Océano Pacífico",
+      "country": "Océano abierto",
+      "lat": -13,
+      "lon": -142,
+      "zoom": 5,
+      "accent": "#cfdfed",
+      "question": "¿Por qué llamamos tierra a un mundo de agua?",
+      "caption": "La mayor parte de la superficie que habitamos no puede recorrerse a pie.",
+      "lead": "El océano conecta climas, especies y economías mucho antes de que lo dibujemos como separación entre continentes.",
+      "paragraphs": [
+        "La NASA estima que el océano cubre aproximadamente el 71 % de la superficie planetaria. Desde la órbita es un color; en la vida real es circulación de calor, intercambio de gases, hábitat y alimento.",
+        "El agua salada domina en volumen. El agua dulce accesible, en cambio, es un recurso limitado y desigualmente distribuido. Confundir esas escalas hace parecer abundante lo que no siempre es utilizable."
+      ],
+      "stat": "71 %",
+      "short": "La mayor parte de la superficie que habitamos no puede recorrerse a pie.",
+      "period": "Superficie de la Tierra cubierta por océanos",
+      "coverage": "Mundo",
+      "editorial": "Porcentaje de superficie y disponibilidad de agua para consumo son medidas diferentes.",
+      "question2": "¿Qué deberíamos proteger primero si comprendemos que las cuencas no obedecen fronteras?",
+      "possibility": "Investigar aguas superficiales, mares, cuencas compartidas y acuerdos de conservación marina.",
+      "bridge": "",
+      "nuance": "El porcentaje es de superficie planetaria, no de agua potable; el punto marino es ilustrativo. Lugar de exploración; la cifra es mundial y no caracteriza por sí sola este territorio.",
+      "sources": [
+        [
+          "NASA · Facts About Earth",
+          "https://science.nasa.gov/earth/facts/"
+        ]
+      ],
+      "api": null,
+      "wb": null
+    },
+    {
+      "id": "R2-02",
+      "part": "I",
+      "kicker": "LO QUE NO VIMOS",
+      "category": "I",
+      "place": "Fosa de las Marianas",
+      "country": "Pacífico",
+      "lat": 11.35,
+      "lon": 142.2,
+      "zoom": 6,
+      "accent": "#cfdfed",
+      "question": "¿Cómo cuidamos aquello que apenas hemos visto?",
+      "caption": "Una imagen del fondo marino es un encuentro raro con la mayor parte del planeta.",
+      "lead": "Conocemos trazos del relieve submarino mediante diferentes métodos. Observar directamente a los organismos y hábitats que habitan esas profundidades es otra cosa.",
+      "paragraphs": [
+        "Un estudio de 2025 estimó que menos del 0,001 % del fondo oceánico a profundidades de al menos 200 metros había sido observado visualmente. El resultado proviene de registros de inmersiones y muestra también una fuerte desigualdad geográfica en la exploración.",
+        "La ausencia de imágenes no equivale a un vacío biológico. Puede ser precisamente donde falta mirar que estén preguntas fundamentales para la conservación."
+      ],
+      "stat": "< 0,001 %",
+      "short": "Una imagen del fondo marino es un encuentro raro con la mayor parte del planeta.",
+      "period": "Fondo oceánico profundo observado visualmente hasta 2025",
+      "coverage": "Mundo",
+      "editorial": "Este dato se refiere a observación visual, NO a mapeo batimétrico del fondo oceánico.",
+      "question2": "¿Quién decide qué lugares merecen ser explorados y qué daños estamos dispuestos a aceptar antes de conocerlos?",
+      "possibility": "Comparar campañas oceanográficas, mapas batimétricos y evidencia ecológica antes de discutir actividades extractivas en aguas profundas.",
+      "bridge": "",
+      "nuance": "Cobertura estimada de observación visual del océano profundo; no indica porcentaje sin cartografía del relieve. Lugar de exploración; la cifra es mundial y no caracteriza por sí sola este territorio.",
+      "sources": [
+        [
+          "Science Advances · Bell y otros (2025)",
+          "https://pmc.ncbi.nlm.nih.gov/articles/PMC12057672/"
+        ]
+      ],
+      "api": null,
+      "wb": null
+    },
+    {
+      "id": "R2-14",
+      "part": "I",
+      "kicker": "UN PLANETA HABITADO",
+      "category": "I",
+      "place": "Patagonia",
+      "country": "Argentina",
+      "lat": -43.5,
+      "lon": -70.7,
+      "zoom": 7,
+      "accent": "#cfdfed",
+      "question": "¿Qué forma de vida parecería eterna si pudiéramos verla durar millones de años?",
+      "caption": "Antes de nuestra historia hubo otras historias larguísimas.",
+      "lead": "Antes de nuestra historia hubo otras historias larguísimas.",
+      "paragraphs": [
+        "Los dinosaurios no avianos existieron durante un período del orden de 165 millones de años. En la Patagonia se encuentran restos que ayudan a reconstruir ambientes y criaturas de un mundo muy anterior al nuestro.",
+        "Su historia no termina como suele contarse: las aves son dinosaurios vivos. Pensar en evolución exige abandonar el relato de una especie que reemplaza limpiamente a otra."
+      ],
+      "stat": "≈ 165 millones de años",
+      "short": "Antes de nuestra historia hubo otras historias larguísimas.",
+      "period": "Duración aproximada de la presencia de dinosaurios no avianos",
+      "coverage": "Mundo",
+      "editorial": "La duración es aproximada y la expresión «no avianos» es esencial.",
+      "question2": "¿Qué cambia cuando dejamos de pensar que la vida llegó para culminar en nosotros?",
+      "possibility": "Explorar fósiles, reservas paleontológicas y la relación entre ambientes antiguos y actuales.",
+      "bridge": "",
+      "nuance": "No es una duración de una sola especie; la taxonomía distingue dinosaurios no avianos de aves. Lugar de exploración; la cifra es mundial y no caracteriza por sí sola este territorio.",
+      "sources": [
+        [
+          "USGS · Dinosaurios y extinción",
+          "https://www.usgs.gov/faqs/when-did-dinosaurs-become-extinct"
+        ]
+      ],
+      "api": null,
+      "wb": null
+    },
+    {
+      "id": "R2-08",
+      "part": "I",
+      "kicker": "APARECIMOS TARDE",
+      "category": "I",
+      "place": "Jebel Irhoud",
+      "country": "Marruecos",
+      "lat": 31.9,
+      "lon": -8.87,
+      "zoom": 8,
+      "accent": "#cfdfed",
+      "question": "¿Cómo aprendimos a sentirnos el centro de una historia tan antigua?",
+      "caption": "Nuestra especie es reciente. Nuestra capacidad de transformar el mundo, enorme.",
+      "lead": "Nuestra especie es reciente. Nuestra capacidad de transformar el mundo, enorme.",
+      "paragraphs": [
+        "Las evidencias fósiles sitúan a Homo sapiens hace alrededor de 300.000 años. Su aparición no fue un instante nítido, sino un proceso evolutivo en diversas poblaciones de África.",
+        "Lo que llamamos humanidad incluye cooperación, desplazamientos, creación de herramientas y vínculos con ecosistemas. No somos visitantes que llegaron de afuera de la naturaleza: somos una de sus formas."
+      ],
+      "stat": "≈ 300.000 años",
+      "short": "Nuestra especie es reciente. Nuestra capacidad de transformar el mundo, enorme.",
+      "period": "Antigüedad aproximada de Homo sapiens",
+      "coverage": "Mundo",
+      "editorial": "Un límite de especie es una reconstrucción científica, no la fecha de nacimiento de una sola persona o cultura.",
+      "question2": "Si pertenecemos a la vida de la Tierra, ¿por qué tantas veces actuamos como si no dependiéramos de ella?",
+      "possibility": "Leer sobre fósiles africanos, evolución humana, migraciones y diversidad cultural sin jerarquizar poblaciones.",
+      "bridge": "",
+      "nuance": "Jebel Irhoud contiene fósiles fundamentales, pero no identifica un origen puntual y exclusivo de todas las personas actuales. Sitio arqueológico vinculado directamente con la historia; el rango temporal se aplica a la especie.",
+      "sources": [
+        [
+          "Smithsonian · Homo sapiens",
+          "https://humanorigins.si.edu/evidence/human-fossils/species/homo-sapiens"
+        ]
+      ],
+      "api": null,
+      "wb": null
+    },
+    {
+      "id": "R2-04",
+      "part": "II",
+      "kicker": "LA MULTITUD INVISIBLE",
+      "category": "II",
+      "place": "Amazonas",
+      "country": "Brasil",
+      "lat": -3.46,
+      "lon": -62.22,
+      "zoom": 8,
+      "accent": "#bbefc5",
+      "question": "¿Quién sostiene un mundo que casi nunca miramos?",
+      "caption": "Una sola hormiga es pequeña. En conjunto, transforman suelos y ecosistemas.",
+      "lead": "Una sola hormiga es pequeña. En conjunto, transforman suelos y ecosistemas.",
+      "paragraphs": [
+        "Un estudio de PNAS estimó cerca de 20 × 10¹⁵ hormigas a partir de cientos de estudios y diferentes biomas. La cifra es un cálculo mundial y conservador, con regiones aún insuficientemente muestreadas.",
+        "Las hormigas airean suelos, dispersan semillas, reciclan nutrientes y sostienen cadenas alimentarias. Gran parte de la vida cotidiana humana depende de procesos ecológicos que casi nunca fotografiamos."
+      ],
+      "stat": "≈ 20.000 billones",
+      "short": "Una sola hormiga es pequeña. En conjunto, transforman suelos y ecosistemas.",
+      "period": "Hormigas estimadas en el planeta",
+      "coverage": "Mundo",
+      "editorial": "Una estimación de abundancia no describe por sí sola la salud de una población o un bosque.",
+      "question2": "¿Qué especies pequeñas hacen posible nuestra vida sin que sepamos siquiera sus nombres?",
+      "possibility": "Buscar estudios locales sobre insectos, suelos y restauración, y proteger hábitats en lugar de medir solo especies icónicas.",
+      "bridge": "",
+      "nuance": "Estimación extrapolada; los 20.000 billones no son un conteo literal de ejemplares. Lugar de exploración; la cifra es mundial y no caracteriza por sí sola este territorio.",
+      "sources": [
+        [
+          "PNAS · Abundancia mundial de hormigas",
+          "https://doi.org/10.1073/pnas.2201550119"
+        ]
+      ],
+      "api": null,
+      "wb": null
+    },
+    {
+      "id": "BIO-03",
+      "part": "II",
+      "kicker": "EL RIESGO DE DESAPARECER",
+      "category": "II",
+      "place": "Islas Galápagos",
+      "country": "Ecuador",
+      "lat": -0.64,
+      "lon": -90.35,
+      "zoom": 9,
+      "accent": "#bbefc5",
+      "question": "¿Cuántas formas de vida desaparecen antes de que sepamos nombrarlas?",
+      "caption": "Una lista no captura una especie; puede ayudar a protegerla.",
+      "lead": "Una lista no captura una especie; puede ayudar a protegerla.",
+      "paragraphs": [
+        "La Lista Roja de la UICN reúne evaluaciones científicas de riesgo de extinción. En su versión 2026-1, 49.505 especies evaluadas están clasificadas como vulnerables, en peligro o en peligro crítico.",
+        "La cifra no representa todas las especies amenazadas del planeta: muchas aún no han sido evaluadas. Tampoco aumenta necesariamente porque cada año haya más deterioro; las evaluaciones se amplían y actualizan."
+      ],
+      "stat": "49.505 especies",
+      "short": "Una lista no captura una especie; puede ayudar a protegerla.",
+      "period": "Evaluadas como amenazadas en la Lista Roja UICN 2026-1",
+      "coverage": "Mundo",
+      "editorial": "Los indicadores de amenaza necesitan denominadores y evolución de riesgo, no titulares sin contexto.",
+      "question2": "¿Qué responsabilidad tenemos con especies que no nos resultan útiles o cercanas?",
+      "possibility": "Consultar evaluaciones locales, planes de conservación y el Índice de Lista Roja para analizar tendencias.",
+      "bridge": "",
+      "nuance": "Número de especies amenazadas entre las evaluadas, no total absoluto global de especies amenazadas. Lugar de exploración; la cifra es mundial y no caracteriza por sí sola este territorio.",
+      "sources": [
+        [
+          "UICN · Lista Roja 2026",
+          "https://iucn.org/resources/conservation-tool/iucn-red-list-threatened-species"
+        ]
+      ],
+      "api": null,
+      "wb": null
+    },
+    {
+      "id": "BIO-04",
+      "part": "II",
+      "kicker": "LA MEMORIA DE LOS BOSQUES",
+      "category": "II",
+      "place": "Amazonia",
+      "country": "Brasil",
+      "lat": -8.2,
+      "lon": -61.2,
+      "zoom": 7,
+      "accent": "#bbefc5",
+      "question": "¿Qué desaparece cuando el mapa se queda sin bosque?",
+      "caption": "Cada claro puede ser una parcela. Sumados, cambian el funcionamiento de regiones enteras.",
+      "lead": "Cada claro puede ser una parcela. Sumados, cambian el funcionamiento de regiones enteras.",
+      "paragraphs": [
+        "La FAO estimó una deforestación global anual de 10,9 millones de hectáreas para 2015–2025. La tasa es menor que en décadas anteriores, pero continúa representando una transformación territorial inmensa.",
+        "Los bosques son comunidades de especies, suelos, ríos y personas. Medir su superficie es indispensable, aunque no suficiente: también importan su integridad, las especies y las relaciones sociales que los atraviesan."
+      ],
+      "stat": "10,9 millones ha/año",
+      "short": "Cada claro puede ser una parcela. Sumados, cambian el funcionamiento de regiones enteras.",
+      "period": "Deforestación mundial media durante 2015–2025",
+      "coverage": "Mundo",
+      "editorial": "Deforestación bruta y cambio neto de superficie forestal no son el mismo indicador.",
+      "question2": "¿Quién recibe los beneficios de transformar un bosque y quién asume sus costos?",
+      "possibility": "Contrastar series de FAO con mapas de cambios de cobertura y derechos de comunidades locales.",
+      "bridge": "",
+      "nuance": "La cifra es mundial; el mapa amazónico no representa por sí solo la tasa local. La década es un promedio anual. Lugar de exploración; la cifra es mundial y no caracteriza por sí sola este territorio.",
+      "sources": [
+        [
+          "FAO · Forest Resources Assessment 2025",
+          "https://www.fao.org/interactive/2025/forest-resources-assessment/en/"
+        ]
+      ],
+      "api": "nasa",
+      "wb": null
+    },
+    {
+      "id": "R1-05",
+      "part": "II",
+      "kicker": "ANIMALES EN EL SISTEMA",
+      "category": "II",
+      "place": "Córdoba",
+      "country": "Argentina",
+      "lat": -31.42,
+      "lon": -64.18,
+      "zoom": 9,
+      "accent": "#bbefc5",
+      "question": "¿Qué vidas se vuelven invisibles cuando las convertimos en producción?",
+      "caption": "Producir alimentos también es organizar nuestra relación con otros animales.",
+      "lead": "Producir alimentos también es organizar nuestra relación con otros animales.",
+      "paragraphs": [
+        "La serie FAOSTAT recopilada en el Excel original registra cerca de 78.500 millones de pollos sacrificados para carne en 2024. La escala obliga a pensar en prácticas productivas, bienestar animal, consumo y trabajo humano.",
+        "Esta cifra no exige una única respuesta moral. Invita a evaluar cómo se crían los animales, la distribución de alimentos, el impacto ambiental y las alternativas accesibles para distintas comunidades."
+      ],
+      "stat": "≈ 78.500 millones",
+      "short": "Producir alimentos también es organizar nuestra relación con otros animales.",
+      "period": "Pollos sacrificados para carne, estimación mundial 2024",
+      "coverage": "Mundo",
+      "editorial": "El número de animales no mide bienestar; tampoco incluye peces, mortalidad no registrada ni todos los usos productivos.",
+      "question2": "¿Qué debería contar un sistema alimentario además del volumen que produce?",
+      "possibility": "Explorar FAOSTAT, condiciones de cría, nutrición, desperdicio alimentario y políticas de bienestar animal.",
+      "bridge": "",
+      "nuance": "Dato tomado del Excel auditado del atlas con base FAOSTAT; verificar última actualización antes de publicar en producción. Lugar de exploración; la cifra es mundial y no caracteriza por sí sola este territorio.",
+      "sources": [
+        [
+          "Our World in Data · FAOSTAT animales sacrificados",
+          "https://ourworldindata.org/grapher/animals-slaughtered-for-meat"
+        ]
+      ],
+      "api": null,
+      "wb": null
+    },
+    {
+      "id": "R2-03",
+      "part": "III",
+      "kicker": "CAMBIAR SIN NOTARLO",
+      "category": "III",
+      "place": "Tokio",
+      "country": "Japón",
+      "lat": 35.68,
+      "lon": 139.69,
+      "zoom": 10,
+      "accent": "#e8dfb8",
+      "question": "¿Cuánto cambia nuestro cuerpo mientras seguimos diciendo «soy yo»?",
+      "caption": "Una parte de nuestra materia se renueva sin que lo decidamos.",
+      "lead": "Una parte de nuestra materia se renueva sin que lo decidamos.",
+      "paragraphs": [
+        "Un modelo publicado en Nature Medicine estimó que un organismo humano adulto de referencia reemplaza aproximadamente 330.000 millones de células por día. La mayoría corresponde a células sanguíneas y a tejidos de recambio rápido.",
+        "No todas las células se renuevan a la misma velocidad. Algunas pueden permanecer durante largos períodos. Nuestra continuidad como personas no depende de que cada componente material sea siempre el mismo."
+      ],
+      "stat": "≈ 330.000 millones/día",
+      "short": "Una parte de nuestra materia se renueva sin que lo decidamos.",
+      "period": "Células reemplazadas en un adulto de referencia",
+      "coverage": "Mundo",
+      "editorial": "Una tasa promedio no describe de manera exacta a todas las edades, cuerpos ni condiciones de salud.",
+      "question2": "Si cambiamos materialmente todo el tiempo, ¿qué permanece en nuestra identidad?",
+      "possibility": "Investigar fisiología celular, envejecimiento, reparación de tejidos y límites de los modelos biológicos.",
+      "bridge": "",
+      "nuance": "Estimación de un cuerpo de referencia, no medición de una persona concreta. El promedio incluye tipos celulares muy distintos. Lugar de exploración; la cifra es mundial y no caracteriza por sí sola este territorio.",
+      "sources": [
+        [
+          "Nature Medicine · Recambio celular",
+          "https://www.nature.com/articles/s41591-020-01182-9"
+        ]
+      ],
+      "api": null,
+      "wb": null
+    },
+    {
+      "id": "R2-06",
+      "part": "III",
+      "kicker": "NO ESTAMOS SOLOS",
+      "category": "III",
+      "place": "Delhi",
+      "country": "India",
+      "lat": 28.61,
+      "lon": 77.21,
+      "zoom": 10,
+      "accent": "#e8dfb8",
+      "question": "¿Dónde termina nuestro cuerpo y empieza el mundo que lo habita?",
+      "caption": "Nuestra vida cotidiana es también una convivencia microscópica.",
+      "lead": "Nuestra vida cotidiana es también una convivencia microscópica.",
+      "paragraphs": [
+        "Una estimación científica situó las bacterias en un adulto de referencia alrededor de 38 billones, una cantidad del mismo orden que las células humanas. La vieja idea de diez bacterias por cada célula humana no es una regla general fiable.",
+        "Microbiomas y cuerpo se relacionan de formas complejas. No toda bacteria es dañina, ni todo desequilibrio puede explicarse con una sola causa. La investigación sigue cambiando nuestra idea de individuo."
+      ],
+      "stat": "≈ 38 billones",
+      "short": "Nuestra vida cotidiana es también una convivencia microscópica.",
+      "period": "Bacterias en un adulto de referencia",
+      "coverage": "Mundo",
+      "editorial": "Las cifras dependen de características corporales y métodos de estimación.",
+      "question2": "¿Podemos hablar de salud sin pensar en ecosistemas, aunque sean invisibles?",
+      "possibility": "Explorar microbiología, alimentación, saneamiento y evidencia clínica sin extrapolar recomendaciones médicas de una metáfora.",
+      "bridge": "",
+      "nuance": "Número aproximado en un adulto de referencia; no equivale a bacterias idénticas ni se aplica universalmente. Lugar de exploración; la cifra es mundial y no caracteriza por sí sola este territorio.",
+      "sources": [
+        [
+          "PLOS Biology · Sender y otros",
+          "https://pmc.ncbi.nlm.nih.gov/articles/PMC4991899/"
+        ]
+      ],
+      "api": null,
+      "wb": null
+    },
+    {
+      "id": "SOC-01",
+      "part": "III",
+      "kicker": "LOS AÑOS GANADOS",
+      "category": "III",
+      "place": "Londres",
+      "country": "Reino Unido",
+      "lat": 51.51,
+      "lon": -0.13,
+      "zoom": 9,
+      "accent": "#e8dfb8",
+      "question": "¿Qué decisiones hicieron posible vivir vidas más largas?",
+      "caption": "Detrás de una serie histórica hay vacunas, agua segura, conocimiento y trabajo de cuidado.",
+      "lead": "Detrás de una serie histórica hay vacunas, agua segura, conocimiento y trabajo de cuidado.",
+      "paragraphs": [
+        "Las reconstrucciones demográficas indican que la esperanza de vida mundial pasó de unos 32 años en 1900 a cerca de 73 en 2023. Es una de las transformaciones más profundas de nuestra historia reciente.",
+        "Eso no significa que nadie llegara a viejo en 1900. La esperanza de vida al nacer estaba fuertemente afectada por la mortalidad infantil. Comparar correctamente requiere entender la estructura por edades."
+      ],
+      "stat": "32 → 73 años",
+      "short": "Detrás de una serie histórica hay vacunas, agua segura, conocimiento y trabajo de cuidado.",
+      "period": "Esperanza de vida mundial: 1900 frente a 2023",
+      "coverage": "Mundo",
+      "editorial": "Una esperanza de vida es una medida del período, no una promesa sobre cada individuo.",
+      "question2": "¿Qué avances actuales podrían parecer increíbles para las generaciones anteriores?",
+      "possibility": "Consultar series nacionales y analizar saneamiento, atención primaria, vacunas y desigualdades persistentes.",
+      "bridge": "",
+      "nuance": "Comparación global reconstruida, con incertidumbre histórica y variaciones considerables por región y período. Lugar de exploración; la cifra es mundial y no caracteriza por sí sola este territorio.",
+      "sources": [
+        [
+          "Our World in Data · Life Expectancy",
+          "https://ourworldindata.org/life-expectancy"
+        ]
+      ],
+      "api": "compare",
+      "wb": {
+        "indicator": "SP.DYN.LE00.IN",
+        "title": "Esperanza de vida",
+        "unit": "años"
+      }
+    },
+    {
+      "id": "SOC-03",
+      "part": "III",
+      "kicker": "EL DERECHO A NACER",
+      "category": "III",
+      "place": "Nairobi",
+      "country": "Kenia",
+      "lat": -1.29,
+      "lon": 36.82,
+      "zoom": 10,
+      "accent": "#e8dfb8",
+      "question": "¿Por qué un acontecimiento cotidiano puede seguir siendo mortal?",
+      "caption": "El nacimiento de una vida nunca debería exigir que otra quede desprotegida.",
+      "lead": "El nacimiento de una vida nunca debería exigir que otra quede desprotegida.",
+      "paragraphs": [
+        "La OMS estimó alrededor de 260.000 muertes maternas en 2023. La mayoría eran evitables con atención oportuna, sistemas de salud accesibles y cuidados adecuados antes, durante y después del embarazo.",
+        "La mortalidad materna es también una pregunta sobre territorio, autonomía, ingresos y derechos. Los servicios existen de forma desigual y las barreras no son siempre visibles desde el mapa."
+      ],
+      "stat": "≈ 260.000 muertes",
+      "short": "El nacimiento de una vida nunca debería exigir que otra quede desprotegida.",
+      "period": "Muertes maternas mundiales estimadas en 2023",
+      "coverage": "Mundo",
+      "editorial": "La cifra es global y su interpretación debe distinguir muertes absolutas de razón de mortalidad materna.",
+      "question2": "¿Qué significa una comunidad que decide no dejar sola a una persona durante el embarazo y el parto?",
+      "possibility": "Comparar servicios de salud, atención profesional, mortalidad y barreras de acceso en fuentes OMS y Banco Mundial.",
+      "bridge": "",
+      "nuance": "Estimación modelada de 2023; no corresponde a la ciudad mostrada. Lugar de exploración; la cifra es mundial y no caracteriza por sí sola este territorio.",
+      "sources": [
+        [
+          "OMS · Mortalidad materna",
+          "https://www.who.int/es/news-room/fact-sheets/detail/maternal-mortality"
+        ]
+      ],
+      "api": "compare",
+      "wb": {
+        "indicator": "SH.STA.MMRT",
+        "title": "Razón de mortalidad materna",
+        "unit": "por 100.000 nacidos vivos"
+      }
+    },
+    {
+      "id": "R1-12",
+      "part": "IV",
+      "kicker": "LA DISTANCIA ENTRE PERSONAS",
+      "category": "IV",
+      "place": "Seúl",
+      "country": "Corea del Sur",
+      "lat": 37.56,
+      "lon": 126.98,
+      "zoom": 10,
+      "accent": "#f0c6d0",
+      "question": "¿Cómo podemos estar conectados y sentirnos tan lejos?",
+      "caption": "El mapa muestra calles llenas. No puede decirnos quién tiene con quién hablar.",
+      "lead": "El mapa muestra calles llenas. No puede decirnos quién tiene con quién hablar.",
+      "paragraphs": [
+        "La Comisión de Conexión Social de la OMS estimó que alrededor del 16 % de las personas reportaba soledad en los datos estudiados entre 2014 y 2023. La experiencia está presente en todas las regiones y edades.",
+        "La soledad es subjetiva y no equivale a vivir solo. Un indicador sirve para abrir preguntas sobre espacios compartidos, tiempo de cuidado, vínculos y barreras de acceso a la comunidad."
+      ],
+      "stat": "≈ 16 %",
+      "short": "El mapa muestra calles llenas. No puede decirnos quién tiene con quién hablar.",
+      "period": "Personas que declararon sentirse solas en estudios mundiales 2014–2023",
+      "coverage": "Mundo",
+      "editorial": "No podemos diagnosticar soledad observando edificios, densidad urbana ni actividad digital.",
+      "question2": "¿Qué construimos para encontrarnos, además de aplicaciones para comunicarnos?",
+      "possibility": "Explorar políticas de conexión social, espacios públicos, redes comunitarias y mediciones de bienestar.",
+      "bridge": "",
+      "nuance": "Prevalencia modelada a partir de encuestas de distintos años; no corresponde a Seúl. Lugar de exploración; la cifra es mundial y no caracteriza por sí sola este territorio.",
+      "sources": [
+        [
+          "OMS · Comisión de Conexión Social",
+          "https://www.who.int/news-room/questions-and-answers/item/social-connection"
+        ]
+      ],
+      "api": null,
+      "wb": null
+    },
+    {
+      "id": "GEN-01",
+      "part": "IV",
+      "kicker": "VIOLENCIA Y SILENCIO",
+      "category": "IV",
+      "place": "Ciudad de México",
+      "country": "México",
+      "lat": 19.43,
+      "lon": -99.13,
+      "zoom": 10,
+      "accent": "#f0c6d0",
+      "question": "¿Qué significa libertad si la seguridad nunca está garantizada?",
+      "caption": "Una estadística habla de magnitudes. Cada experiencia merece privacidad, respeto y escucha.",
+      "lead": "Una estadística habla de magnitudes. Cada experiencia merece privacidad, respeto y escucha.",
+      "paragraphs": [
+        "Las estimaciones de la OMS sobre violencia contra mujeres indican que casi una de cada tres ha sufrido violencia física o sexual de pareja o violencia sexual por otra persona en su vida. Las cifras pueden subestimar el fenómeno por el silencio y el subregistro.",
+        "El problema no reside en un país ni en una cultura particular. Los sistemas de prevención, apoyo y justicia importan tanto como los datos; una historia responsable no exhibe víctimas ni inventa testimonios."
+      ],
+      "stat": "≈ 1 de cada 3",
+      "short": "Una estadística habla de magnitudes. Cada experiencia merece privacidad, respeto y escucha.",
+      "period": "Mujeres que sufrieron violencia física o sexual en su vida",
+      "coverage": "Mundo",
+      "editorial": "La prevalencia depende de definiciones y encuestas; no debe confundirse con denuncias policiales o hechos anuales.",
+      "question2": "¿Cómo se mide el éxito de una política de protección cuando denunciar también puede resultar difícil?",
+      "possibility": "Leer evaluaciones de políticas de prevención, acceso a servicios de apoyo y estándares de protección de supervivientes.",
+      "bridge": "",
+      "nuance": "Cifra global estimada. El paisaje urbano es ilustrativo; no describe tasas de México. Lugar de exploración; la cifra es mundial y no caracteriza por sí sola este territorio.",
+      "sources": [
+        [
+          "OMS · Violencia contra las mujeres",
+          "https://www.who.int/es/news-room/fact-sheets/detail/violence-against-women"
+        ]
+      ],
+      "api": null,
+      "wb": null
+    },
+    {
+      "id": "GEN-02",
+      "part": "IV",
+      "kicker": "QUIÉN PUEDE IMAGINAR EL FUTURO",
+      "category": "IV",
+      "place": "Bangalore",
+      "country": "India",
+      "lat": 12.97,
+      "lon": 77.59,
+      "zoom": 10,
+      "accent": "#f0c6d0",
+      "question": "¿Quiénes están invitados a diseñar el futuro?",
+      "caption": "La tecnología no es neutral respecto de quién tiene oportunidad de crearla.",
+      "lead": "La tecnología no es neutral respecto de quién tiene oportunidad de crearla.",
+      "paragraphs": [
+        "UNESCO señala que las mujeres representan aproximadamente el 35 % de quienes se gradúan en ciencia, tecnología, ingeniería y matemática, una proporción que lleva años mostrando pocos cambios.",
+        "No alcanza con pedir interés individual. Influyen estereotipos, recursos, modelos de referencia, condiciones de trabajo y acceso a formación de calidad. Diseñar sistemas mejores también es abrirles la puerta a quienes históricamente quedaron afuera."
+      ],
+      "stat": "35 %",
+      "short": "La tecnología no es neutral respecto de quién tiene oportunidad de crearla.",
+      "period": "Graduadas mujeres en disciplinas STEM en el mundo",
+      "coverage": "Mundo",
+      "editorial": "Porcentaje de graduadas en un conjunto amplio de áreas; no corresponde a planteles de empresas ni carreras específicas.",
+      "question2": "¿Qué conocimiento perdemos cuando confundimos talento con oportunidad?",
+      "possibility": "Investigar brechas por disciplina y región, mentorías, acceso educativo y persistencia en carreras técnicas.",
+      "bridge": "",
+      "nuance": "Dato internacional de UNESCO, no porcentaje de estudiantes de Bangalore. Lugar de exploración; la cifra es mundial y no caracteriza por sí sola este territorio.",
+      "sources": [
+        [
+          "UNESCO · Mujeres en STEM",
+          "https://www.unesco.org/en/gender-equality/education/stem"
+        ]
+      ],
+      "api": null,
+      "wb": null
+    },
+    {
+      "id": "GEN-03",
+      "part": "IV",
+      "kicker": "QUIÉN OCUPA LA MESA",
+      "category": "IV",
+      "place": "Kigali",
+      "country": "Ruanda",
+      "lat": -1.95,
+      "lon": 30.06,
+      "zoom": 10,
+      "accent": "#f0c6d0",
+      "question": "¿Puede una democracia escuchar a todas las personas si algunas llegan menos a decidir?",
+      "caption": "Representar no es solamente ocupar una silla: también es tener capacidad de intervenir.",
+      "lead": "Representar no es solamente ocupar una silla: también es tener capacidad de intervenir.",
+      "paragraphs": [
+        "Según la Unión Interparlamentaria, las mujeres ocupaban el 27,5 % de los escaños parlamentarios nacionales del mundo a 1 de enero de 2026. En Ruanda, la proporción en la cámara baja era del 63,8 % en junio de ese año.",
+        "Las proporciones describen representación descriptiva, no demuestran por sí solas calidad democrática ni resultados de políticas. Para evaluar una institución hay que mirar además libertades, controles, deliberación y participación."
+      ],
+      "stat": "27,5 %",
+      "short": "Representar no es solamente ocupar una silla: también es tener capacidad de intervenir.",
+      "period": "Escaños parlamentarios ocupados por mujeres a comienzos de 2026",
+      "coverage": "Mundo",
+      "editorial": "Un porcentaje elevado de mujeres no certifica automáticamente prácticas institucionales democráticas.",
+      "question2": "¿Cómo evaluamos representantes por sus decisiones, su transparencia y su respeto a los derechos?",
+      "possibility": "Consultar datos por cámara y fecha; comparar representación, reglas electorales, rendición de cuentas y libertades.",
+      "bridge": "",
+      "nuance": "27,5 % es promedio mundial, 63,8 % es valor de la cámara baja de Ruanda; no son medidas equivalentes de democracia. Lugar de exploración; la cifra es mundial y no caracteriza por sí sola este territorio.",
+      "sources": [
+        [
+          "IPU · Women in Parliament 2026",
+          "https://www.ipu.org/news/press-releases/2026-03/womens-representation-in-parliament-sees-sluggish-gains"
+        ]
+      ],
+      "api": "compare",
+      "wb": {
+        "indicator": "SG.GEN.PARL.ZS",
+        "title": "Escaños de mujeres en parlamentos",
+        "unit": "% de escaños"
+      }
+    },
+    {
+      "id": "SOC-04",
+      "part": "IV",
+      "kicker": "UN MUNDO DE VOCES",
+      "category": "IV",
+      "place": "Papúa Nueva Guinea",
+      "country": "Papúa Nueva Guinea",
+      "lat": -6.32,
+      "lon": 143.96,
+      "zoom": 7,
+      "accent": "#f0c6d0",
+      "question": "¿Qué desaparece cuando dejamos de escuchar un idioma?",
+      "caption": "Una lengua guarda conocimiento del territorio, recuerdos y maneras de relacionarse.",
+      "lead": "Una lengua guarda conocimiento del territorio, recuerdos y maneras de relacionarse.",
+      "paragraphs": [
+        "Las lenguas no son únicamente sistemas para nombrar cosas. En ellas viven historias, taxonomías populares, canciones y formas de reconocer el ambiente. Su debilitamiento suele acompañar presiones políticas, económicas y educativas.",
+        "El Excel original registra unas 1.500 lenguas en riesgo. La magnitud depende de los criterios de vitalidad y de la fecha de cada catálogo; no existe un contador universal de desapariciones futuras."
+      ],
+      "stat": "≈ 1.500 lenguas",
+      "short": "Una lengua guarda conocimiento del territorio, recuerdos y maneras de relacionarse.",
+      "period": "Lenguas mencionadas en el atlas original como amenazadas",
+      "coverage": "Mundo",
+      "editorial": "Las comunidades lingüísticas son protagonistas de las decisiones sobre su patrimonio, no objetos de conservación externa.",
+      "question2": "¿Qué saberes ecológicos y culturales perdemos cuando una generación ya no puede enseñar en su lengua?",
+      "possibility": "Revisar el Atlas Mundial de Lenguas de UNESCO y proyectos de documentación liderados por comunidades.",
+      "bridge": "",
+      "nuance": "Orden de magnitud según base del proyecto; requiere actualización antes de usar como indicador anual. Lugar de exploración; la cifra es mundial y no caracteriza por sí sola este territorio.",
+      "sources": [
+        [
+          "UNESCO · Diversidad lingüística",
+          "https://www.unesco.org/es/multilingualism-linguistic-diversity"
+        ]
+      ],
+      "api": null,
+      "wb": null
+    },
+    {
+      "id": "R1-03",
+      "part": "IV",
+      "kicker": "LA LIBERTAD NO ES UN PROMEDIO",
+      "category": "IV",
+      "place": "Daca",
+      "country": "Bangladés",
+      "lat": 23.81,
+      "lon": 90.41,
+      "zoom": 10,
+      "accent": "#f0c6d0",
+      "question": "¿Qué es prosperar si alguien no puede negarse?",
+      "caption": "Un sistema productivo no debería medir su éxito olvidando la libertad de las personas.",
+      "lead": "Un sistema productivo no debería medir su éxito olvidando la libertad de las personas.",
+      "paragraphs": [
+        "Estimaciones mundiales de OIT, Walk Free y OIM situaron en 49,6 millones las personas en situaciones de trabajo o matrimonio forzoso durante 2021. Son realidades diferentes que el informe estudia conjuntamente.",
+        "La explotación puede permanecer oculta detrás de precios, cadenas de suministro y normas sociales. No se trata de etiquetar una ciudad como culpable; se trata de investigar mecanismos, responsabilidades y protecciones."
+      ],
+      "stat": "49,6 millones",
+      "short": "Un sistema productivo no debería medir su éxito olvidando la libertad de las personas.",
+      "period": "Personas en trabajo o matrimonio forzoso en 2021",
+      "coverage": "Mundo",
+      "editorial": "La cifra combina trabajo forzoso y matrimonio forzoso, y no es un conteo de personas de 2026.",
+      "question2": "¿Cómo cambia una economía cuando dejamos de considerar descartable a quien trabaja?",
+      "possibility": "Examinar derechos laborales, mecanismos de inspección, protección de víctimas y trazabilidad de cadenas de suministro.",
+      "bridge": "",
+      "nuance": "Estimación global de 2021, no tasa local ni dato actualizado diariamente. Lugar de exploración; la cifra es mundial y no caracteriza por sí sola este territorio.",
+      "sources": [
+        [
+          "OIT · Global Estimates 2022",
+          "https://www.ilo.org/publications/major-publications/global-estimates-modern-slavery-forced-labour-and-forced-marriage"
+        ]
+      ],
+      "api": null,
+      "wb": null
+    },
+    {
+      "id": "SOC-05",
+      "part": "IV",
+      "kicker": "LA ESCALA DE LA DESIGUALDAD",
+      "category": "IV",
+      "place": "Nueva York",
+      "country": "Estados Unidos",
+      "lat": 40.71,
+      "lon": -74.01,
+      "zoom": 10,
+      "accent": "#f0c6d0",
+      "question": "¿Qué significa vivir en un mismo mundo sin compartir sus posibilidades?",
+      "caption": "Compartimos atmósfera y tiempo histórico; los recursos están distribuidos de otro modo.",
+      "lead": "Compartimos atmósfera y tiempo histórico; los recursos están distribuidos de otro modo.",
+      "paragraphs": [
+        "El World Inequality Report 2026 calcula que menos de 60.000 personas, el 0,001 % más rico entre adultos, controlan aproximadamente tres veces la riqueza neta conjunta de la mitad más pobre del planeta.",
+        "Patrimonio no es ingreso mensual. Una gran concentración no explica por sí sola sus causas; hace necesario discutir impuestos, acceso, herencias, servicios, trabajo y poder económico con datos y evaluaciones concretas."
+      ],
+      "stat": "3 veces más patrimonio",
+      "short": "Compartimos atmósfera y tiempo histórico; los recursos están distribuidos de otro modo.",
+      "period": "Riqueza del 0,001 % más rico frente a la mitad más pobre",
+      "coverage": "Mundo",
+      "editorial": "El dato compara riqueza neta, no salarios, y utiliza métodos estadísticos para grandes patrimonios.",
+      "question2": "¿Cómo se construyen reglas que permitan progresar sin que el punto de partida decida todo?",
+      "possibility": "Comparar desigualdad de riqueza e ingresos, movilidad social, provisión de servicios y políticas evaluadas.",
+      "bridge": "",
+      "nuance": "Estimación mundial, no reparto de riqueza de Nueva York; las valoraciones patrimoniales cambian en el tiempo. Lugar de exploración; la cifra es mundial y no caracteriza por sí sola este territorio.",
+      "sources": [
+        [
+          "World Inequality Report 2026",
+          "https://wir2026.wid.world/insight/executive-summary/"
+        ]
+      ],
+      "api": null,
+      "wb": null
+    },
+    {
+      "id": "R1-08",
+      "part": "IV",
+      "kicker": "LAS PERSONAS QUE ESTUVIERON",
+      "category": "IV",
+      "place": "Mesopotamia",
+      "country": "Irak",
+      "lat": 33.31,
+      "lon": 44.36,
+      "zoom": 9,
+      "accent": "#f0c6d0",
+      "question": "¿Cuántas vidas hicieron posible que estemos aquí?",
+      "caption": "No hay monumento que alcance para recordar a todas las personas que nos precedieron.",
+      "lead": "No hay monumento que alcance para recordar a todas las personas que nos precedieron.",
+      "paragraphs": [
+        "La Population Reference Bureau estimó que hasta 2022 nacieron unos 117.000 millones de miembros de nuestra especie. En ese año vivía aproximadamente el 6,8 % de quienes habían nacido alguna vez, según el mismo modelo.",
+        "La prehistoria no dejó registros demográficos completos. Esta cifra depende de supuestos sobre natalidad, mortalidad y tamaño de poblaciones antiguas. Su valor está en la escala que sugiere, no en la falsa precisión de una cuenta individual."
+      ],
+      "stat": "≈ 117.000 millones",
+      "short": "No hay monumento que alcance para recordar a todas las personas que nos precedieron.",
+      "period": "Humanos nacidos en la historia hasta 2022, estimación",
+      "coverage": "Mundo",
+      "editorial": "La historia humana es también la historia de personas anónimas, no solo de quienes aparecen en los libros.",
+      "question2": "¿A quiénes deja afuera nuestra manera de recordar?",
+      "possibility": "Explorar arqueología, historia social, memoria comunitaria y métodos de demografía histórica.",
+      "bridge": "",
+      "nuance": "Estimación altamente incierta en períodos prehistóricos; valor calculado hasta 2022, no vigente para 2026. Lugar de exploración; la cifra es mundial y no caracteriza por sí sola este territorio.",
+      "sources": [
+        [
+          "Population Reference Bureau",
+          "https://www.prb.org/news/how-many-people-have-ever-lived-on-earth/"
+        ]
+      ],
+      "api": null,
+      "wb": null
+    },
+    {
+      "id": "R1-10",
+      "part": "V",
+      "kicker": "EL DERECHO AL AGUA",
+      "category": "V",
+      "place": "Rajasthan",
+      "country": "India",
+      "lat": 26.9,
+      "lon": 75.8,
+      "zoom": 9,
+      "accent": "#f5cea7",
+      "question": "¿Cómo puede faltar agua en un planeta cubierto por océanos?",
+      "caption": "Disponer de agua no es lo mismo que acceder a agua segura cuando la necesitamos.",
+      "lead": "Disponer de agua no es lo mismo que acceder a agua segura cuando la necesitamos.",
+      "paragraphs": [
+        "El programa conjunto OMS–UNICEF calculó que en 2024 unas 2.100 millones de personas carecían de un servicio de agua potable gestionado de forma segura. Eso no significa que todas bebieran directamente de ríos: existen grados de acceso y calidad.",
+        "La disponibilidad depende de acuíferos, calidad, infraestructura, instituciones y capacidad de pago. En una misma cuenca pueden convivir abundancia física y desigualdad social."
+      ],
+      "stat": "2.100 millones",
+      "short": "Disponer de agua no es lo mismo que acceder a agua segura cuando la necesitamos.",
+      "period": "Personas sin agua potable gestionada de forma segura en 2024",
+      "coverage": "Mundo",
+      "editorial": "«Gestionada de forma segura» combina disponibilidad, acceso en el hogar y ausencia de contaminación; es más exigente que «fuente mejorada».",
+      "question2": "¿Quién se hace responsable del agua una vez que deja de ser solo un recurso y pasa a ser un derecho?",
+      "possibility": "Comparar indicadores nacionales, estudiar cuencas y evaluar soluciones de infraestructura y gestión comunitaria.",
+      "bridge": "",
+      "nuance": "Número mundial de 2024, no dato del estado de Rajasthan. Lugar de exploración; la cifra es mundial y no caracteriza por sí sola este territorio.",
+      "sources": [
+        [
+          "UNICEF · Agua potable 2024",
+          "https://data.unicef.org/topic/water-and-sanitation/drinking-water/"
+        ]
+      ],
+      "api": "compare",
+      "wb": {
+        "indicator": "SH.H2O.SMDW.ZS",
+        "title": "Acceso a agua segura",
+        "unit": "% de población"
+      }
+    },
+    {
+      "id": "ENV-01",
+      "part": "V",
+      "kicker": "COMIDA QUE NO LLEGA",
+      "category": "V",
+      "place": "Buenos Aires",
+      "country": "Argentina",
+      "lat": -34.61,
+      "lon": -58.38,
+      "zoom": 10,
+      "accent": "#f5cea7",
+      "question": "¿Por qué una parte de nuestra comida termina antes que el hambre?",
+      "caption": "Una cocina es un lugar de cuidado. También es un punto de un sistema de producción y descarte.",
+      "lead": "Una cocina es un lugar de cuidado. También es un punto de un sistema de producción y descarte.",
+      "paragraphs": [
+        "UNEP estimó 1.050 millones de toneladas de desperdicio alimentario en 2022 en hogares, comercios y servicios de comida. Incluye partes no comestibles y es distinto de las pérdidas anteriores en la cadena.",
+        "Reducir desperdicio no consiste en culpar a cada persona por igual. Importan el diseño de mercados, refrigeración, transporte, porciones, ingresos, normas y logística."
+      ],
+      "stat": "1.050 millones t",
+      "short": "Una cocina es un lugar de cuidado. También es un punto de un sistema de producción y descarte.",
+      "period": "Desperdicio de alimentos mundial en 2022",
+      "coverage": "Mundo",
+      "editorial": "Desperdicio y pérdida de alimentos en la cadena son categorías distintas; el dato incluye partes no comestibles.",
+      "question2": "¿Qué revelarían nuestros basurales sobre la manera en que organizamos la abundancia?",
+      "possibility": "Investigar el indicador UNEP, recuperación de alimentos, medición en restaurantes y políticas de donación.",
+      "bridge": "",
+      "nuance": "Dato global, no estimación de desperdicio de Buenos Aires; el mapa es un escenario cotidiano de la pregunta. Lugar de exploración; la cifra es mundial y no caracteriza por sí sola este territorio.",
+      "sources": [
+        [
+          "UNEP · Food Waste Index 2024",
+          "https://www.unep.org/en/news-and-stories/press-release/world-squanders-over-1-billion-meals-day-un-report"
+        ]
+      ],
+      "api": null,
+      "wb": null
+    },
+    {
+      "id": "ENV-02",
+      "part": "V",
+      "kicker": "EXTRAER EL FUTURO",
+      "category": "V",
+      "place": "Desierto de Atacama",
+      "country": "Chile",
+      "lat": -23.5,
+      "lon": -68.25,
+      "zoom": 7,
+      "accent": "#f5cea7",
+      "question": "¿Podemos hablar de progreso sin preguntar de dónde viene la materia?",
+      "caption": "Cada dispositivo, camino y batería empieza mucho antes de llegar a nuestras manos.",
+      "lead": "Cada dispositivo, camino y batería empieza mucho antes de llegar a nuestras manos.",
+      "paragraphs": [
+        "UNEP indicó en Global Resources Outlook 2024 que la extracción de recursos naturales se triplicó en las cinco décadas previas. La trayectoria se relaciona con infraestructura, producción y patrones de consumo muy desiguales.",
+        "La minería y la energía permiten servicios esenciales. También generan presiones que requieren evaluación ambiental, consulta, agua, salud laboral y cierre responsable. No todo proyecto produce los mismos efectos."
+      ],
+      "stat": "× 3",
+      "short": "Cada dispositivo, camino y batería empieza mucho antes de llegar a nuestras manos.",
+      "period": "Extracción mundial de recursos materiales en cinco décadas",
+      "coverage": "Mundo",
+      "editorial": "La extracción mundial es una magnitud agregada; no permite atribuir impactos concretos al desierto mostrado.",
+      "question2": "¿Cómo diseñamos transiciones tecnológicas que no trasladen los costos a otros territorios?",
+      "possibility": "Examinar intensidad material, reciclaje, evaluación de impacto y beneficios comunitarios con seguimiento transparente.",
+      "bridge": "",
+      "nuance": "Crecimiento histórico agregado de extracción; no significa que cada material se extrajo exactamente tres veces más. Lugar de exploración; la cifra es mundial y no caracteriza por sí sola este territorio.",
+      "sources": [
+        [
+          "UNEP · Global Resources Outlook",
+          "https://www.unep.org/en/publications/report/global-resources-outlook-2024"
+        ]
+      ],
+      "api": null,
+      "wb": null
+    },
+    {
+      "id": "ENV-03",
+      "part": "V",
+      "kicker": "EL CLIMA NO ES UN PAÍS",
+      "category": "V",
+      "place": "Groenlandia",
+      "country": "Ártico",
+      "lat": 72.4,
+      "lon": -40.1,
+      "zoom": 6,
+      "accent": "#f5cea7",
+      "question": "¿A quién pertenece una atmósfera que compartimos todos?",
+      "caption": "El calentamiento global tiene causas humanas y consecuencias profundamente desiguales.",
+      "lead": "El calentamiento global tiene causas humanas y consecuencias profundamente desiguales.",
+      "paragraphs": [
+        "El IPCC concluyó que las actividades humanas causaron inequívocamente el calentamiento observado: la temperatura superficial media global alcanzó aproximadamente 1,1 °C sobre el nivel de 1850–1900 en 2011–2020.",
+        "Una cifra mundial es el resultado de innumerables mediciones y métodos. Los impactos son locales, variados y no se ven todos en una imagen de hielo. La responsabilidad histórica, la exposición y la capacidad de adaptación tampoco están distribuidas igual."
+      ],
+      "stat": "+ 1,1 °C",
+      "short": "El calentamiento global tiene causas humanas y consecuencias profundamente desiguales.",
+      "period": "Calentamiento observado 2011–2020 respecto de 1850–1900",
+      "coverage": "Mundo",
+      "editorial": "Promedio de 2011–2020 frente a referencia preindustrial; no confundir con anomalía de NASA relativa a 1951–1980.",
+      "question2": "¿Cómo repartimos responsabilidades sin abandonar a quienes menos pueden protegerse?",
+      "possibility": "Examinar escenarios climáticos, adaptación local y políticas de reducción de emisiones con equidad.",
+      "bridge": "",
+      "nuance": "El sitio visual no es una medición de temperatura; un mapa satelital no prueba por sí solo tendencia climática. Lugar de exploración; la cifra es mundial y no caracteriza por sí sola este territorio.",
+      "sources": [
+        [
+          "IPCC · Informe de síntesis AR6",
+          "https://www.ipcc.ch/report/ar6/syr/summary-for-policymakers/"
+        ]
+      ],
+      "api": "compare",
+      "wb": {
+        "indicator": "EN.ATM.CO2E.KT",
+        "title": "Emisiones de CO₂",
+        "unit": "kilotoneladas de CO₂/año"
+      }
+    },
+    {
+      "id": "FUT-01",
+      "part": "VI",
+      "kicker": "OTRA ENERGÍA ES POSIBLE",
+      "category": "VI",
+      "place": "Atacama",
+      "country": "Chile",
+      "lat": -24.2,
+      "lon": -69.2,
+      "zoom": 8,
+      "accent": "#c9c6ff",
+      "question": "¿Y si el futuro también pudiera medirse en lo que aprendimos a cambiar?",
+      "caption": "Una transición energética es una decisión técnica, económica, política y territorial.",
+      "lead": "Una transición energética es una decisión técnica, económica, política y territorial.",
+      "paragraphs": [
+        "Según la IEA, las renovables aportaron alrededor del 34 % de la generación eléctrica mundial en 2025, frente al 23 % una década antes. El avance es considerable; al mismo tiempo, carbón y gas siguen siendo fuentes centrales.",
+        "Ninguna tecnología está libre de impactos. La pregunta es cómo comparar emisiones, materiales, empleo, acceso, biodiversidad y confiabilidad para diseñar un sistema que sirva a las personas y dure."
+      ],
+      "stat": "34 %",
+      "short": "Una transición energética es una decisión técnica, económica, política y territorial.",
+      "period": "Generación eléctrica renovable mundial en 2025",
+      "coverage": "Mundo",
+      "editorial": "Participación de generación eléctrica, no porcentaje de toda la energía consumida en el planeta.",
+      "question2": "¿Quién participa en las decisiones sobre dónde y para quién se produce la energía?",
+      "possibility": "Explorar matrices nacionales, redes, almacenamiento y evaluaciones ambientales de proyectos.",
+      "bridge": "",
+      "nuance": "Valor global de 2025, no producción energética de Atacama; no confundir electricidad con energía final. Lugar de exploración; la cifra es mundial y no caracteriza por sí sola este territorio.",
+      "sources": [
+        [
+          "IEA · Global Energy Review 2026",
+          "https://www.iea.org/reports/global-energy-review-2026/electricity-supply"
+        ]
+      ],
+      "api": "compare",
+      "wb": {
+        "indicator": "EG.FEC.RNEW.ZS",
+        "title": "Renovables en consumo final",
+        "unit": "% energía final; otro indicador"
+      }
+    },
+    {
+      "id": "FUT-02",
+      "part": "VI",
+      "kicker": "EL FUTURO NO ES UN DATO",
+      "category": "VI",
+      "place": "Desierto de Sonora",
+      "country": "México",
+      "lat": 30.2,
+      "lon": -112.0,
+      "zoom": 7,
+      "accent": "#c9c6ff",
+      "question": "¿Qué sucede si prolongamos nuestras decisiones actuales durante décadas?",
+      "caption": "Las proyecciones no son profecías: son maneras de comparar decisiones posibles.",
+      "lead": "Las proyecciones no son profecías: son maneras de comparar decisiones posibles.",
+      "paragraphs": [
+        "UNEP advirtió en Global Resources Outlook 2024 que, sin cambios sustanciales, la extracción de recursos podría aumentar alrededor de un 60 % hacia 2060. Es una proyección condicionada a supuestos, no un hecho futuro observado.",
+        "Esa diferencia es esencial. Si una proyección muestra un riesgo, su utilidad es precisamente permitir actuar antes de que ocurra. Diseño circular, reparación, eficiencia y políticas materiales pueden alterar trayectorias."
+      ],
+      "stat": "+ 60 % (escenario)",
+      "short": "Las proyecciones no son profecías: son maneras de comparar decisiones posibles.",
+      "period": "Posible aumento de extracción de materiales hacia 2060",
+      "coverage": "Mundo",
+      "editorial": "Una proyección condicional no debe contarse como estadística ocurrida ni destino inevitable.",
+      "question2": "¿Qué hipótesis estamos aceptando cuando decimos «el futuro será así»?",
+      "possibility": "Comparar escenarios de recursos, identificar supuestos y probar intervenciones con medidas verificables.",
+      "bridge": "",
+      "nuance": "Cifra prospectiva global, con incertidumbre; suponer continuidad no equivale a predicción segura. Lugar de exploración; la cifra es mundial y no caracteriza por sí sola este territorio.",
+      "sources": [
+        [
+          "UNEP · Global Resources Outlook 2024",
+          "https://www.unep.org/en/publications/report/global-resources-outlook-2024"
+        ]
+      ],
+      "api": null,
+      "wb": null
+    },
+    {
+      "id": "R2-11",
+      "part": "VI",
+      "kicker": "HASTA EL TIEMPO REQUIERE ACUERDOS",
+      "category": "VI",
+      "place": "Centro Espacial Kennedy",
+      "country": "Estados Unidos",
+      "lat": 28.57,
+      "lon": -80.65,
+      "zoom": 10,
+      "accent": "#c9c6ff",
+      "question": "¿Y si hasta encontrar el camino dependiera de aceptar que el tiempo no es absoluto?",
+      "caption": "A veces una teoría aparentemente abstracta termina ayudándonos a llegar a casa.",
+      "lead": "A veces una teoría aparentemente abstracta termina ayudándonos a llegar a casa.",
+      "paragraphs": [
+        "Los relojes en órbitas GPS experimentan efectos de relatividad general y especial que producen una diferencia neta del orden de 38 microsegundos diarios respecto de relojes terrestres, si no se corrigen.",
+        "Los sistemas de navegación incorporan estas correcciones. Es un ejemplo de ciencia convertida en infraestructura: conocimiento construido durante generaciones se vuelve una herramienta cotidiana para millones."
+      ],
+      "stat": "≈ 38 μs/día",
+      "short": "A veces una teoría aparentemente abstracta termina ayudándonos a llegar a casa.",
+      "period": "Diferencia relativista neta de relojes GPS respecto de la superficie",
+      "coverage": "Mundo",
+      "editorial": "Los 38 microsegundos no son una falla operativa acumulada sin control; forman parte del diseño de sincronización.",
+      "question2": "¿Qué saberes que hoy parecen inútiles podrían permitir formas mejores de vivir mañana?",
+      "possibility": "Leer sobre relatividad, estándares de tiempo, sistemas satelitales y servicios públicos de posicionamiento.",
+      "bridge": "",
+      "nuance": "Referencia al sistema GPS; no indica una medición específica sobre el centro espacial mostrado. Lugar de exploración; la cifra es mundial y no caracteriza por sí sola este territorio.",
+      "sources": [
+        [
+          "NIST · Einstein y los relojes",
+          "https://www.nist.gov/atomic-clocks/a-powerful-tool-for-science/putting-einstein-test"
+        ]
+      ],
+      "api": null,
+      "wb": null
+    }
+  ],
+  "order": [
+    "GEO-01",
+    "GEO-02",
+    "R2-02",
+    "R2-14",
+    "R2-08",
+    "R2-04",
+    "R1-04",
+    "BIO-03",
+    "BIO-04",
+    "R1-05",
+    "R2-03",
+    "R2-06",
+    "SOC-01",
+    "R1-02",
+    "SOC-03",
+    "R1-12",
+    "GEN-01",
+    "GEN-02",
+    "GEN-03",
+    "SOC-04",
+    "R1-03",
+    "R1-06",
+    "SOC-05",
+    "R1-08",
+    "R1-07",
+    "R1-10",
+    "ENV-01",
+    "ENV-02",
+    "ENV-03",
+    "FUT-01",
+    "FUT-02",
+    "R2-11"
+  ],
+  "legacy_scene_ids": [
+    "R1-07",
+    "R1-02",
+    "R1-06",
+    "R1-04"
+  ]
+}
