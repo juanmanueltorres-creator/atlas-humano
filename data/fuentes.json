@@ -1,7 +1,7 @@
 {
-  "edition": "ATLAS HUMANO 5.0",
+  "edition": "ATLAS HUMANO 5.2",
   "date": "2026-11-05",
-  "notes": "Las coordenadas son escenarios editoriales salvo vínculo geográfico explícito. Fuente y período de cada cifra se indican por capítulo.",
+  "notes": "Las coordenadas son escenarios editoriales salvo vínculo geográfico explícito. Fuente y período de cada cifra se indican por capítulo. Acto VII: vínculos y ejemplos documentados de cooperación. Los datos locales y mundiales se diferencian explícitamente.",
   "new_stories": [
     {
       "id": "GEO-01",
@@ -971,7 +971,7 @@
       "place": "Desierto de Sonora",
       "country": "México",
       "lat": 30.2,
-      "lon": -112.0,
+      "lon": -112,
       "zoom": 7,
       "accent": "#c9c6ff",
       "question": "¿Qué sucede si prolongamos nuestras decisiones actuales durante décadas?",
@@ -1034,6 +1034,174 @@
       ],
       "api": null,
       "wb": null
+    },
+    {
+      "id": "COM-01",
+      "part": "VII",
+      "category": "VII",
+      "kicker": "UNA PREGUNTA COMPARTIDA",
+      "place": "Córdoba",
+      "country": "Argentina",
+      "lat": -31.42,
+      "lon": -64.19,
+      "zoom": 10,
+      "accent": "#d3dcfa",
+      "question": "¿Y si una pregunta fuera el comienzo de un encuentro?",
+      "caption": "El aislamiento se mide en encuestas. La compañía se construye en vínculos concretos.",
+      "lead": "A veces creemos que nuestras preguntas son demasiado grandes —o demasiado pequeñas— para decirlas en voz alta.",
+      "paragraphs": [
+        "La OMS informó en 2025 que aproximadamente una de cada seis personas del mundo experimenta soledad. Es una estimación basada en investigaciones sobre conexión social, no un conteo de personas aisladas en una ciudad específica.",
+        "La soledad no se resuelve con un mapa ni con una frase bonita. Sin embargo, reconocerla como una experiencia compartida puede cambiar la conversación: los espacios públicos, las redes vecinales y las relaciones sostenidas importan tanto como otras condiciones de bienestar.",
+        "No queremos que este atlas reemplace un encuentro. Queremos que una pregunta que aparece en pantalla tenga la posibilidad de continuar en una conversación real."
+      ],
+      "stat": "1 de cada 6",
+      "short": "Personas que experimentan soledad en el mundo, según informe de la OMS publicado en 2025.",
+      "period": "Informe OMS · 2025",
+      "coverage": "Mundo",
+      "editorial": "Una estimación mundial no describe a Córdoba ni determina cómo se siente una persona. Compartir una experiencia no implica que todas sean iguales.",
+      "question2": "¿Qué lugares, actividades y vínculos nos permiten sentir que pertenecemos?",
+      "possibility": "Explorar bibliotecas, organizaciones barriales, ciencia ciudadana y espacios donde distintas generaciones pueden encontrarse.",
+      "bridge": "Cuidarnos entre personas también puede significar organizarnos para cuidar los territorios que habitamos.",
+      "nuance": "La estimación de soledad es mundial. Córdoba es un punto editorial de exploración, no un lugar medido por este indicador en el Atlas. No se infiere el estado emocional de los visitantes.",
+      "sources": [
+        [
+          "OMS · Comisión sobre conexión social",
+          "https://www.who.int/groups/commission-on-social-connection"
+        ],
+        [
+          "OMS · Informe 2025",
+          "https://www.who.int/publications/b/79027"
+        ]
+      ],
+      "api": null,
+      "wb": null
+    },
+    {
+      "id": "COM-02",
+      "part": "VII",
+      "category": "VII",
+      "kicker": "EL BOSQUE TIENE MUCHAS MANOS",
+      "place": "Nepal · estribaciones del Himalaya",
+      "country": "Nepal",
+      "lat": 27.689,
+      "lon": 85.31,
+      "zoom": 9,
+      "accent": "#bde9a8",
+      "question": "¿Puede un bosque regresar cuando una comunidad decide cuidarlo?",
+      "caption": "La recuperación no comienza en el satélite: comienza entre quienes viven allí.",
+      "lead": "Un bosque puede volver a crecer. Pero contar árboles no alcanza para explicar quién lo protege ni quién depende de él.",
+      "paragraphs": [
+        "Un informe del Banco Mundial registró que la cobertura forestal de Nepal pasó del 29 % en 1994 a más del 46 % en 2022. La gestión forestal comunitaria fue una parte fundamental de ese proceso.",
+        "Grupos de habitantes participan en el cuidado y aprovechamiento regulado de los bosques. La experiencia muestra que conservar puede formar parte de la vida cotidiana, en lugar de oponerse automáticamente a ella.",
+        "No todo está resuelto: el mismo informe advierte sobre fragmentación, degradación y desigualdades en el acceso a beneficios. Celebrar los avances no significa ignorar esas tensiones."
+      ],
+      "stat": "29 % → más de 46 %",
+      "short": "Evolución estimada de la cobertura forestal nacional de Nepal entre 1994 y 2022.",
+      "period": "1994–2022 · Banco Mundial",
+      "coverage": "Nepal",
+      "editorial": "La recuperación forestal tiene causas múltiples; el informe reconoce un papel destacado de la gestión comunitaria, no una relación causal única.",
+      "question2": "¿Qué cambia cuando las comunidades dejan de ser espectadoras y participan de las decisiones?",
+      "possibility": "Conocer iniciativas de restauración, gobernanza comunitaria, derechos locales y monitoreo forestal con participación pública.",
+      "bridge": "Nepal no es el único lugar donde se intentó reparar una relación deteriorada con el territorio.",
+      "nuance": "Dato nacional, no medición puntual del sitio satelital. Mayor cobertura no garantiza por sí sola bosques más sanos: importan composición, fragmentación, biodiversidad y beneficios comunitarios.",
+      "sources": [
+        [
+          "Banco Mundial · May the Forest Be With You (2025)",
+          "https://www.worldbank.org/en/country/nepal/publication/may-the-forest-be-with-you-mapping-nepal-s-forest-landscapes-and-livelihoods"
+        ],
+        [
+          "FAO · Bosques comunitarios Nepal",
+          "https://www.fao.org/forest-farm-facility/our-work/countries/nepal/en"
+        ]
+      ],
+      "api": null,
+      "wb": null
+    },
+    {
+      "id": "COM-03",
+      "part": "VII",
+      "category": "VII",
+      "kicker": "LA POSIBILIDAD DE REPARAR",
+      "place": "Costa Rica",
+      "country": "Costa Rica",
+      "lat": 10.19,
+      "lon": -84.08,
+      "zoom": 9,
+      "accent": "#b8e8c0",
+      "question": "¿Y si conservar también fuera una forma de prosperar?",
+      "caption": "La regeneración necesita tiempo. Y las decisiones humanas también dejan huellas verdes.",
+      "lead": "Nos acostumbramos a pensar en el desarrollo y la conservación como fuerzas opuestas. No siempre tienen que serlo.",
+      "paragraphs": [
+        "La serie FAO publicada por el Banco Mundial estima que en 2024 los bosques cubrían el 59,1 % de la superficie terrestre de Costa Rica. Esa cifra nacional no significa que todos sus ecosistemas estén sanos o que la pérdida de biodiversidad haya terminado.",
+        "El país combinó áreas protegidas, incentivos de conservación y restauración, y otras transformaciones económicas y sociales. Sus resultados son objeto de estudio porque muestran posibilidades, pero también debates sobre costos, distribución de beneficios y calidad de la recuperación.",
+        "En una imagen de satélite, el verde puede parecer homogéneo. Sobre el terreno, hay bosques maduros, secundarios, plantaciones, corredores y comunidades que experimentan estas políticas de maneras diferentes."
+      ],
+      "stat": "59,1 %",
+      "short": "Superficie terrestre de Costa Rica clasificada como forestal en 2024 (FAO/Banco Mundial).",
+      "period": "2024 · FAO / Banco Mundial",
+      "coverage": "Costa Rica",
+      "editorial": "La superficie forestal es un indicador de extensión y no mide por sí solo biodiversidad, acceso equitativo o calidad ecológica.",
+      "question2": "¿Cómo diseñamos sistemas que puedan sostener tanto los ecosistemas como las vidas humanas?",
+      "possibility": "Investigar pagos por servicios ambientales, áreas protegidas, restauración y participación de comunidades locales.",
+      "bridge": "Hay decisiones que requieren cooperación más allá de cualquier frontera nacional.",
+      "nuance": "59,1 % es valor nacional de la serie del Banco Mundial (FAO) en 2024; la imagen satelital es una escena de exploración. No se atribuye toda la recuperación a una sola política.",
+      "sources": [
+        [
+          "Banco Mundial · Superficie forestal Costa Rica",
+          "https://data.worldbank.org/indicator/AG.LND.FRST.ZS?locations=CR"
+        ],
+        [
+          "Banco Mundial · Conservación y restauración",
+          "https://documents1.worldbank.org/curated/en/099955011092213526/pdf/P17770602aad4701309adb08b084c12888c.pdf"
+        ]
+      ],
+      "api": null,
+      "wb": {
+        "title": "La superficie forestal en el tiempo",
+        "indicator": "AG.LND.FRST.ZS",
+        "unit": "% del territorio"
+      }
+    },
+    {
+      "id": "COM-04",
+      "part": "VII",
+      "category": "VII",
+      "kicker": "CUANDO EL MUNDO SE PONE DE ACUERDO",
+      "place": "Montreal",
+      "country": "Canadá",
+      "lat": 45.5,
+      "lon": -73.57,
+      "zoom": 10,
+      "accent": "#d4edfc",
+      "question": "¿Qué puede lograr un acuerdo que dure generaciones?",
+      "caption": "Un tratado no se ve desde el espacio. Sus efectos pueden alcanzar la atmósfera entera.",
+      "lead": "Hay problemas tan grandes que ninguna ciudad, empresa o país puede resolverlos por su cuenta.",
+      "paragraphs": [
+        "En 1987, los países acordaron en Montreal medidas para reducir sustancias que dañaban la capa de ozono. La implementación del Protocolo de Montreal ha contribuido a su recuperación.",
+        "La Secretaría del Ozono de Naciones Unidas estima que, si se mantiene el cumplimiento del tratado, la columna total de ozono podría recuperar aproximadamente sus valores de 1980 hacia 2040 en la mayor parte del mundo, alrededor de 2045 en el Ártico y 2066 en la Antártida.",
+        "No es una fecha garantizada: es una proyección condicionada al cumplimiento y a factores atmosféricos. Pero muestra que la cooperación internacional, acompañada de mediciones, controles y revisiones, puede cambiar trayectorias a escala planetaria."
+      ],
+      "stat": "1987 → ~2040",
+      "short": "Firma del Protocolo de Montreal y recuperación proyectada del ozono hacia valores de 1980 para gran parte del planeta, condicionada al cumplimiento.",
+      "period": "1987 · proyección 2040",
+      "coverage": "Mundo",
+      "editorial": "La ciudad de Montreal es el lugar histórico de la firma, no el sitio de medición de una recuperación atmosférica mundial.",
+      "question2": "¿Qué otras decisiones colectivas podríamos sostener durante varias generaciones?",
+      "possibility": "Investigar cómo se negocian tratados, se verifican compromisos y se ajustan políticas públicas con evidencia científica.",
+      "bridge": "El atlas termina, pero las preguntas pueden seguir en una conversación con otra persona.",
+      "nuance": "2040 es una proyección condicional para la franja 60°N–60°S, no una garantía ni la fecha para todas las regiones. La imagen de Montreal no demuestra el cambio atmosférico.",
+      "sources": [
+        [
+          "ONU · Secretaría del Ozono, datos y proyecciones",
+          "https://ozone.unep.org/facts-and-figures-ozone-protection"
+        ],
+        [
+          "ONU · Protocolo de Montreal",
+          "https://ozone.unep.org/treaties/montreal-protocol"
+        ]
+      ],
+      "api": null,
+      "wb": null
     }
   ],
   "order": [
@@ -1068,7 +1236,11 @@
     "ENV-03",
     "FUT-01",
     "FUT-02",
-    "R2-11"
+    "R2-11",
+    "COM-01",
+    "COM-02",
+    "COM-03",
+    "COM-04"
   ],
   "legacy_scene_ids": [
     "R1-07",
