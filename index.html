@@ -108,6 +108,7 @@
 
 /* Atlas Humano 5.4 · additional sound UI, tuned for mobile and desktop */
 .atlas-audio-trigger.is-on{border-color:rgba(186,243,215,.75)!important;background:rgba(58,103,78,.56)!important}
+.atlas-audio-trigger.is-armed{border-color:rgba(186,243,215,.5)!important;box-shadow:inset 0 0 0 1px rgba(186,243,215,.12)}
 .narrate-quick{position:fixed;right:clamp(14px,4vw,66px);top:84px;z-index:24;display:flex;align-items:center;gap:9px;min-height:43px;padding:8px 17px;border-radius:100px;background:rgba(188,238,204,.92);color:#10241b;border:1px solid rgba(228,255,236,.65);font:600 12px 'DM Sans',sans-serif;letter-spacing:.012em;box-shadow:0 8px 36px #05100955;backdrop-filter:blur(12px);transition:transform .22s,background .22s,opacity .18s}
 .narrate-quick:hover{transform:translateY(-2px);background:#e0ffeb}.narrate-quick[aria-pressed="true"]{background:#f1ddd4;color:#341a15}
 .narrate-quick:focus-visible{outline:2px solid #fbfff3;outline-offset:3px}.narrate-quick.hidden-by-panel{opacity:0;pointer-events:none}
@@ -444,9 +445,9 @@ change(0);applySharedLink();if(!playing)document.getElementById('motion').textCo
 </script>
 <script>
 
-/* ATLAS HUMANO 5.4 — sound atlas: one palette per act, one motif per chapter.
+/* ATLAS HUMANO 5.5 — sound atlas: one palette per act, one motif per chapter.
    Original procedural synthesis; reference ideas: Tone.js scheduling, Aether layered ambience.
-   No source files, recording, trackers, network, or autoplay. */
+   No external recordings or trackers. Autostart is attempted, with first-interaction fallback for browser autoplay policy. */
 (()=>{
   'use strict';
   const $=id=>document.getElementById(id);
@@ -464,7 +465,7 @@ change(0);applySharedLink();if(!playing)document.getElementById('motion').textCo
   const panel=el('section','audio-panel',{id:'atlas-audio-panel','aria-label':'Paisaje sonoro y voz'});
   panel.hidden=true;
   panel.innerHTML=`
-    <div class="audio-top"><div><div class="audio-label">ATLAS SONORO · 5.4</div><h2>Escuchar el mundo</h2></div><button id="audio-close" class="audio-x" type="button" aria-label="Cerrar ajustes">×</button></div>
+    <div class="audio-top"><div><div class="audio-label">ATLAS SONORO · 5.5</div><h2>Escuchar el mundo</h2></div><button id="audio-close" class="audio-x" type="button" aria-label="Cerrar ajustes">×</button></div>
     <p class="audio-description">Cada lugar tiene su propio pulso. La música acompaña, la voz cuenta; vos elegís cuándo escuchar.</p>
     <div class="audio-current"><span class="audio-wave" aria-hidden="true">◌ ◦ ◌</span><div><span class="audio-current-eyebrow">PAISAJE ACTUAL</span><strong id="audio-scene-name">—</strong></div></div>
     <div class="audio-line audio-actions"><button type="button" class="audio-main" id="audio-read-chapter">▶ Narrar historia</button><button type="button" id="audio-read-manifest">Leer manifiesto</button></div>
@@ -475,8 +476,8 @@ change(0);applySharedLink();if(!playing)document.getElementById('motion').textCo
       <label><span>Volumen de voz</span><input id="audio-voice-volume" type="range" min="20" max="100" step="1" value="90" aria-label="Volumen de voz"><output id="audio-voice-value">90 %</output></label>
       <label><span>Volumen ambiente</span><input id="audio-ambient-volume" type="range" min="0" max="100" step="1" value="100" aria-label="Volumen del ambiente"><output id="audio-ambient-value">100 %</output></label>
     </div>
-    <p class="audio-status" id="audio-status" role="status" aria-live="polite">El sonido está apagado. Podés leer todo sin escucharlo.</p>
-    <p class="audio-hint">100 % equivale al nivel de mezcla diseñado, no al volumen máximo del dispositivo. La música baja mientras habla la voz. Sin inicio automático.</p>`;
+    <p class="audio-status" id="audio-status" role="status" aria-live="polite">Preparando paisaje musical…</p>
+    <p class="audio-hint">100 % equivale al nivel de mezcla diseñado, no al volumen máximo del dispositivo. La música baja mientras habla la voz. Si el navegador bloquea el inicio automático, se activa con tu primera interacción. Podés apagarla cuando quieras.</p>`;
   document.body.append(panel);
 
   const speechAvailable='speechSynthesis' in window && 'SpeechSynthesisUtterance' in window;
@@ -518,12 +519,16 @@ change(0);applySharedLink();if(!playing)document.getElementById('motion').textCo
   $('audio-scene-name').textContent=sceneLabel();
 
   let ctx=null,master=null,mix=null,delay=null,delaySend=null,activeBed=null,oldBeds=[],scheduler=null;
-  let ambient=false,speaking=false,voiceSequence=0,utterance=null,chapterSeen=getChapter()?.id;
+  // Start with ambience enabled by intent. Audible playback remains subject to browser autoplay rules.
+  // A visitor who switches it off stays in control for the rest of this visit.
+  let ambient=false,ambientWanted=true,speaking=false,voiceSequence=0,utterance=null,chapterSeen=getChapter()?.id;
+  let activationPending=false;
   function createEngine(){
     if(ctx)return true;
     const AC=window.AudioContext||window.webkitAudioContext;
     if(!AC){sayStatus('Este navegador no permite generar audio.');return false}
     ctx=new AC({latencyHint:'interactive'});
+    ctx.addEventListener?.('statechange',()=>{if(ambientWanted&&ctx?.state==='running')activateIfRunning()});
     master=ctx.createDynamicsCompressor();
     master.threshold.value=-18;master.knee.value=20;master.ratio.value=7;master.attack.value=0.008;master.release.value=.35;
     const safety=ctx.createGain();safety.gain.value=.40;
@@ -633,24 +638,92 @@ change(0);applySharedLink();if(!playing)document.getElementById('motion').textCo
     const now=ctx.currentTime;let safety=0;
     while(activeBed.next<now+.28&&safety++<4)playTone(activeBed,activeBed.next,activeBed.step);
   }
-  async function startAmbient(){
-    if(!createEngine())return;
-    try{await ctx.resume()}catch(e){sayStatus('No se pudo iniciar el audio: '+e.message);return}
-    ambient=true;startBedForChapter();setMix();
+  // The UI must never claim audio is playing while the browser has suspended its AudioContext.
+  function updateAmbientUI(){
+    const button=$('audio-ambient');
+    button.setAttribute('aria-pressed',String(ambient));
+    trigger.setAttribute('aria-pressed',String(ambient));
+    if(ambient){
+      button.textContent='Ⅱ Apagar paisaje';
+      trigger.querySelector('.audio-icon-label').textContent='Sonido ON';
+      trigger.classList.add('is-on');trigger.classList.remove('is-armed');
+      trigger.title='Paisaje sonoro activo · Abrir controles';
+      trigger.setAttribute('aria-label','Paisaje sonoro activo · Ajustes de voz y música');
+    }else if(ambientWanted){
+      button.textContent='♫ Sonido preparado · apagar';
+      trigger.querySelector('.audio-icon-label').textContent='Sonido listo';
+      trigger.classList.remove('is-on');trigger.classList.add('is-armed');
+      trigger.title='El paisaje comenzará al interactuar · Abrir controles';
+      trigger.setAttribute('aria-label','Sonido preparado, se iniciará con la primera interacción · Ajustes');
+    }else{
+      button.textContent='♫ Iniciar paisaje';
+      trigger.querySelector('.audio-icon-label').textContent='Sonido OFF';
+      trigger.classList.remove('is-on','is-armed');
+      trigger.title='Sonido apagado · Abrir controles';
+      trigger.setAttribute('aria-label','Sonido apagado · Ajustes de voz y música');
+    }
+  }
+  function activateIfRunning(){
+    if(!ambientWanted||!ctx||ctx.state!=='running'||ambient)return false;
+    ambient=true;activationPending=false;
+    startBedForChapter();setMix();
     if(!scheduler)scheduler=setInterval(tick,65);
-    $('audio-ambient').setAttribute('aria-pressed','true');
-    $('audio-ambient').textContent='Ⅱ Apagar paisaje';
-    trigger.classList.add('is-on');
+    updateAmbientUI();
     sayStatus('Paisaje activo · '+sceneLabel());
+    return true;
   }
-  function stopAmbient(){ambient=false;setMix();stopScheduler();
+  function startAmbient(){
+    ambientWanted=true;
+    if(!createEngine()){ambientWanted=false;updateAmbientUI();return}
+    updateAmbientUI();
+    if(activateIfRunning())return;
+    if(!activationPending){
+      activationPending=true;
+      try{
+        Promise.resolve(ctx.resume()).then(()=>{
+          activationPending=false;
+          activateIfRunning();
+        }).catch(()=>{activationPending=false;if(ambientWanted&&!ambient)sayStatus('El navegador bloqueó el inicio. Tocá la pantalla o presioná una tecla para escuchar.');});
+      }catch(e){activationPending=false;sayStatus('El navegador bloqueó el inicio. Tocá la pantalla para escuchar.');}
+    }else{
+      // Some browsers defer the first resume() promise until a user gesture.
+      // A later gesture may already have resumed the context.
+      activateIfRunning();
+    }
+    if(!ambient) sayStatus('Paisaje listo: comenzará con tu primera interacción si el navegador bloquea el audio automático.');
+  }
+  function stopAmbient(userChoice=true){
+    if(userChoice)ambientWanted=false;
+    ambient=false;activationPending=false;
+    setMix();stopScheduler();
     if(activeBed){retire(activeBed);activeBed=null}
-    $('audio-ambient').setAttribute('aria-pressed','false');
-    $('audio-ambient').textContent='♫ Iniciar paisaje';
-    trigger.classList.remove('is-on');
-    sayStatus('Paisaje musical apagado.');
+    updateAmbientUI();
+    sayStatus(userChoice?'Paisaje apagado. Podés volver a activarlo cuando quieras.':'Paisaje en pausa mientras la página está oculta.');
   }
-  $('audio-ambient').addEventListener('click',()=>ambient?stopAmbient():void startAmbient());
+  $('audio-ambient').addEventListener('click',()=>{
+    if(ambient||ambientWanted)stopAmbient();
+    else startAmbient();
+  });
+  // Attempt genuine autoplay where the browser permits it. When blocked, the first
+  // user gesture on the artwork resumes AudioContext without an extra settings click.
+  // Clicking the explicit off switch is excluded to avoid briefly starting audio.
+  function onFirstGesture(e){
+    if(!ambientWanted||ambient)return;
+    if(e.target?.closest?.('#audio-ambient'))return;
+    if(e.type==='keydown'&&(e.key==='Tab'||e.key==='Shift'||e.key==='Control'||e.key==='Alt'||e.key==='Meta'))return;
+    // Call resume() synchronously in the gesture task; don't await a pre-gesture promise.
+    if(!ctx)createEngine();
+    if(!ctx)return;
+    try{void ctx.resume().then(()=>activateIfRunning()).catch(()=>{});}catch{}
+    activateIfRunning();
+  }
+  document.addEventListener('pointerdown',onFirstGesture,{capture:true,passive:true});
+  document.addEventListener('touchstart',onFirstGesture,{capture:true,passive:true});
+  document.addEventListener('keydown',onFirstGesture,{capture:true});
+  document.addEventListener('click',onFirstGesture,{capture:true});
+  updateAmbientUI();
+  // defer initialization until DOM is settled; do not force unmuted playback.
+  setTimeout(()=>{if(ambientWanted&&!document.hidden)startAmbient()},0);
 
   function updateScene(){
     $('audio-scene-name').textContent=sceneLabel();
@@ -745,8 +818,11 @@ change(0);applySharedLink();if(!playing)document.getElementById('motion').textCo
   function togglePanel(){panel.hidden=!panel.hidden;trigger.setAttribute('aria-expanded',String(!panel.hidden));quick.classList.toggle('hidden-by-panel',!panel.hidden);if(!panel.hidden)$('audio-close').focus()}
   trigger.onclick=togglePanel;$('audio-close').onclick=closePanel;
   document.addEventListener('keydown',e=>{if(e.key==='Escape'&&!panel.hidden){e.preventDefault();closePanel()}});
-  document.addEventListener('visibilitychange',()=>{if(document.hidden){stopSpeech();if(ambient)stopAmbient()}});
-  window.addEventListener('pagehide',()=>{stopSpeech();if(ambient)stopAmbient();if(activeBed)disposeBed(activeBed);for(const bed of [...oldBeds])disposeBed(bed);stopScheduler();if(ctx){void ctx.close();ctx=null}});
+  document.addEventListener('visibilitychange',()=>{
+    if(document.hidden){stopSpeech();if(ambient)stopAmbient(false)}
+    else if(ambientWanted)startAmbient();
+  });
+  window.addEventListener('pagehide',()=>{stopSpeech();if(ambient)stopAmbient(false);if(activeBed)disposeBed(activeBed);for(const bed of [...oldBeds])disposeBed(bed);stopScheduler();if(ctx){void ctx.close();ctx=null}});
 })();
 </script>
 </body></html>
