@@ -60,3 +60,25 @@ La opción **♫ Escuchar** añade paisaje sonoro generado localmente con Web Au
 - El caleidoscopio y la navegación siguen funcionando sin audio. En segundo plano, la reproducción se detiene.
 
 **Limitación:** esta versión utiliza síntesis de voz del navegador y no audio profesional grabado. Puede haber diferencias entre dispositivos. No representa una narración sincronizada con subtítulos.
+
+
+## Paisajes sonoros por capítulo · 5.4
+
+El Atlas genera **36 variaciones musicales reproducibles** sobre **siete paletas por acto**, mediante Web Audio API nativa. Las variaciones de cada capítulo utilizan una afinación, voicing, frase, tempo y timbre determinados a partir de su identificador. Al navegar, los paisajes se superponen y se atenúan gradualmente para evitar cortes bruscos. No se cargan pistas musicales ni se requieren dependencias JavaScript nuevas.
+
+- **▶ Escuchar voz**: botón destacado fuera del panel de configuración; lee la historia actual o la escena abierta del manifiesto, según el contexto.
+- **♫ Sonido**: panel con música ambiental, voz, velocidad y control de volúmenes.
+- **Ambiente 100 %**: valor inicial del deslizador *dentro de una mezcla moderada y comprimida*, no el volumen máximo del dispositivo.
+- **Inicio voluntario**: por las políticas de los navegadores y por accesibilidad, el audio no se reproduce automáticamente sin acción del visitante.
+- **Voz**: sigue utilizando SpeechSynthesis del navegador; la naturalidad depende de las voces instaladas. No sustituye una grabación profesional.
+- **Composición**: fuente original con osciladores, ruido filtrado, motivos generativos, paneo, retardo, compresión y programación anticipada de eventos.
+
+### Referencias técnicas consultadas
+
+- [Tone.js / Tone.Transport](https://github.com/Tonejs/Tone.js) — reloj de audio y programación musical anticipada; **no se incorporó la biblioteca**.
+- [Aether, paisaje sonoro generativo](https://github.com/thomasehardt/aether) — referencia conceptual de texturas y capas; **sin copiar su código**.
+- [MDN Web Audio Examples](https://github.com/mdn/webaudio-examples) — síntesis, filtros y temporización.
+
+### Pruebas
+
+Se verificaron sintaxis JavaScript, controles en escritorio y móvil, inicio/detención de música, cambio de capítulo con dos capas activas durante la transición y ausencia de errores JavaScript en el navegador de pruebas. Las capturas locales usan teselas simuladas para aislar la interfaz. La **calidad acústica subjetiva** y los dispositivos móviles reales necesitan revisión auditiva posterior.
