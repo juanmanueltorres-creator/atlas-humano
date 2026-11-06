@@ -53,7 +53,7 @@ Obra de divulgación artística y pensamiento crítico. No es un sistema de deci
 
 La opción **♫ Escuchar** añade paisaje sonoro generado localmente con Web Audio API y lectura de capítulos o escenas del manifiesto mediante `SpeechSynthesis` del navegador.
 
-- No inicia audio sin una acción del visitante.
+- El ambiente se intenta iniciar al entrar; si el navegador bloquea autoplay con sonido, comienza en el primer clic, toque o tecla. La voz siempre es voluntaria.
 - La voz, el ritmo y el volumen pueden ajustarse; la calidad de voz depende del navegador y de las voces instaladas.
 - La música reduce su volumen durante la narración.
 - Los textos siempre permanecen disponibles sin sonido; no se recopilan ni envían grabaciones.
@@ -69,7 +69,7 @@ El Atlas genera **36 variaciones musicales reproducibles** sobre **siete paletas
 - **▶ Escuchar voz**: botón destacado fuera del panel de configuración; lee la historia actual o la escena abierta del manifiesto, según el contexto.
 - **♫ Sonido**: panel con música ambiental, voz, velocidad y control de volúmenes.
 - **Ambiente 100 %**: valor inicial del deslizador *dentro de una mezcla moderada y comprimida*, no el volumen máximo del dispositivo.
-- **Inicio voluntario**: por las políticas de los navegadores y por accesibilidad, el audio no se reproduce automáticamente sin acción del visitante.
+- **Inicio ambiental · 5.5**: el paisaje queda activado por defecto (deslizador en 100 % de una mezcla moderada). Si el navegador bloquea el autoplay, aparece «Sonido listo» y comienza con la primera interacción; «Apagar paisaje» lo desactiva para el resto de la visita.
 - **Voz**: sigue utilizando SpeechSynthesis del navegador; la naturalidad depende de las voces instaladas. No sustituye una grabación profesional.
 - **Composición**: fuente original con osciladores, ruido filtrado, motivos generativos, paneo, retardo, compresión y programación anticipada de eventos.
 
@@ -82,3 +82,8 @@ El Atlas genera **36 variaciones musicales reproducibles** sobre **siete paletas
 ### Pruebas
 
 Se verificaron sintaxis JavaScript, controles en escritorio y móvil, inicio/detención de música, cambio de capítulo con dos capas activas durante la transición y ausencia de errores JavaScript en el navegador de pruebas. Las capturas locales usan teselas simuladas para aislar la interfaz. La **calidad acústica subjetiva** y los dispositivos móviles reales necesitan revisión auditiva posterior.
+
+
+## Inicio de ambiente · 5.5
+
+Al entrar se intenta activar la música. Por las políticas de reproducción automática de los navegadores, no se puede garantizar sonido audible antes de la primera interacción. Si Web Audio queda suspendido, la primera acción en la página inicia el ambiente sin exigir abrir ajustes; el estado visible distingue **Sonido listo**, **Sonido ON** y **Sonido OFF**. Apagarlo manualmente evita que vuelva a encenderse por otra interacción. El fondo se pausa cuando la pestaña está oculta.
