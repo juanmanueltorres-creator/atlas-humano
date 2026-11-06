@@ -106,6 +106,37 @@
 .audio-panel .audio-hint{font:11px/1.55 'DM Sans',sans-serif;color:#c6d7cc;margin:13px 0 0}
 @media(max-width:700px){.atlas-audio-trigger{min-width:36px!important;width:36px!important;padding:0!important;justify-content:center}.atlas-audio-trigger .audio-icon-label{display:none}.audio-panel{top:67px;right:12px;max-height:calc(100dvh - 148px);padding:18px}.audio-panel h2{font-size:29px}}
 
+/* Atlas Humano 5.4 · additional sound UI, tuned for mobile and desktop */
+.atlas-audio-trigger.is-on{border-color:rgba(186,243,215,.75)!important;background:rgba(58,103,78,.56)!important}
+.narrate-quick{position:fixed;right:clamp(14px,4vw,66px);top:84px;z-index:24;display:flex;align-items:center;gap:9px;min-height:43px;padding:8px 17px;border-radius:100px;background:rgba(188,238,204,.92);color:#10241b;border:1px solid rgba(228,255,236,.65);font:600 12px 'DM Sans',sans-serif;letter-spacing:.012em;box-shadow:0 8px 36px #05100955;backdrop-filter:blur(12px);transition:transform .22s,background .22s,opacity .18s}
+.narrate-quick:hover{transform:translateY(-2px);background:#e0ffeb}.narrate-quick[aria-pressed="true"]{background:#f1ddd4;color:#341a15}
+.narrate-quick:focus-visible{outline:2px solid #fbfff3;outline-offset:3px}.narrate-quick.hidden-by-panel{opacity:0;pointer-events:none}
+.narrate-quick .quick-play{font-size:12px;display:inline-grid;place-content:center;border:1px solid currentColor;border-radius:50%;width:23px;height:23px}
+.audio-panel .audio-current{display:flex;align-items:center;gap:12px;margin:12px 0 16px;padding:13px 15px;background:#d2f9e011;border:1px solid #e7f6e32e;border-radius:17px}
+.audio-panel .audio-current .audio-wave{font-size:20px;letter-spacing:-4px;color:#a8e5cd;white-space:nowrap}
+.audio-current>div{display:flex;flex-direction:column;gap:5px}.audio-current-eyebrow{font:500 9px 'DM Mono',monospace;letter-spacing:.17em;color:#a9d6b9}.audio-current strong{font:500 13px/1.4 'DM Sans',sans-serif;color:#ebfff1}
+.audio-panel .audio-settings .settings-title{font:500 11px 'DM Mono',monospace;color:#bbe7d0;letter-spacing:.09em;margin-bottom:5px}
+.audio-panel .audio-actions .audio-main{font-weight:700}
+.audio-panel .audio-ambient-btn[aria-pressed="true"]{background:#b7e9c6;color:#10251b;border-color:#b7e9c6}
+.manifest-actions .manifest-narrate{border-color:#b5e9c8!important;background:#b5e9c830;color:#f7fff8;font-weight:600}
+@media(max-width:700px){.narrate-quick{right:12px;top:66px;min-height:39px;padding:5px 12px;font-size:11px;gap:7px}.narrate-quick .quick-play{width:21px;height:21px}.audio-panel{top:112px;max-height:calc(100dvh - 135px)}.audio-panel .audio-current{padding:11px}.manifest-actions .manifest-narrate{min-height:40px;padding:9px 12px}}
+@media(prefers-reduced-motion:reduce){.narrate-quick{transition:none!important}}
+@media(max-width:700px){
+  .topbar{padding:13px 10px;gap:5px}
+  .brandgroup{gap:5px}
+  .seal-link{width:34px;height:34px;flex-basis:34px}
+  .geo-seal{width:25px;height:25px}
+  .brand-mark{font-size:21px;letter-spacing:-.075em}
+  .topright{gap:4px}
+  .page-code{padding:7px 6px;font-size:8px;white-space:nowrap}
+  .manifest-launch{width:30px;min-height:30px;padding:0}
+  .tiny-button{width:30px;height:30px}
+  .index-launch{min-width:30px;width:30px;padding:0}
+  .atlas-audio-trigger{min-width:30px!important;width:30px!important}
+  .narrate-quick{top:62px}
+  .audio-panel{top:109px}
+}
+
 </style>
 </head>
 <body>
@@ -413,135 +444,309 @@ change(0);applySharedLink();if(!playing)document.getElementById('motion').textCo
 </script>
 <script>
 
-/* Atlas Audio 0.1 — optional sound experiment. No audio starts without a user gesture. */
+/* ATLAS HUMANO 5.4 — sound atlas: one palette per act, one motif per chapter.
+   Original procedural synthesis; reference ideas: Tone.js scheduling, Aether layered ambience.
+   No source files, recording, trackers, network, or autoplay. */
 (()=>{
   'use strict';
-  const q=(s)=>document.querySelector(s);
-  const trigger=document.createElement('button');
-  trigger.className='tiny-button atlas-audio-trigger';trigger.type='button';trigger.id='audio-launch';
-  trigger.setAttribute('aria-label','Abrir escucha accesible');trigger.setAttribute('aria-expanded','false');
-  trigger.innerHTML='<span aria-hidden="true">♫</span><span class="audio-icon-label">Escuchar</span>';
-  const topRight=q('.topright');
-  if(!topRight)return;
-  topRight.insertBefore(trigger,q('#info'));
-  const panel=document.createElement('section');
-  panel.className='audio-panel';panel.id='atlas-audio-panel';panel.hidden=true;
-  panel.setAttribute('aria-label','Escucha y accesibilidad sonora');
+  const $=id=>document.getElementById(id);
+  const el=(tag,cls,attributes={})=>{const e=document.createElement(tag);if(cls)e.className=cls;for(const [k,v] of Object.entries(attributes))e.setAttribute(k,v);return e};
+  const heading=$('chapter-index');
+  const toolbar=document.querySelector('.topright');
+  if(!toolbar||!heading||!Array.isArray(chapters))return;
+
+  const trigger=el('button','tiny-button atlas-audio-trigger',{type:'button',id:'audio-launch','aria-label':'Ajustes de voz y música','aria-expanded':'false'});
+  trigger.innerHTML='<span aria-hidden="true">♫</span><span class="audio-icon-label">Sonido</span>';
+  toolbar.insertBefore(trigger,$('info'));
+  const quick=el('button','narrate-quick',{type:'button',id:'narrate-quick','aria-label':'Iniciar narración de la historia actual','aria-pressed':'false'});
+  quick.innerHTML='<span class="quick-play" aria-hidden="true">▶</span><span class="quick-label">Escuchar voz</span>';
+  document.body.append(quick);
+  const panel=el('section','audio-panel',{id:'atlas-audio-panel','aria-label':'Paisaje sonoro y voz'});
+  panel.hidden=true;
   panel.innerHTML=`
-    <div class="audio-top"><div><div class="audio-label">Laboratorio sonoro · 0.1</div><h2>Escuchar el mundo</h2></div><button id="audio-close" class="audio-x" type="button" aria-label="Cerrar audio">×</button></div>
-    <p class="audio-description">Una voz para acompañar las preguntas. Un paisaje sonoro suave para contemplar la Tierra. Todo comienza cuando vos lo elegís.</p>
-    <div class="audio-line"><button type="button" class="audio-main" id="audio-read-chapter">▶ Leer capítulo</button><button type="button" id="audio-read-manifest">Leer manifiesto</button></div>
-    <div class="audio-line"><button type="button" id="audio-ambient" aria-pressed="false">♫ Iniciar ambiente</button><button type="button" id="audio-stop">■ Detener voz</button></div>
-    <div class="audio-settings">
-      <label><span>Voz</span><select id="audio-voice" aria-label="Voz de lectura"><option value="">Voz predeterminada en español</option></select></label>
-      <label><span>Velocidad</span><input id="audio-rate" type="range" min="0.78" max="1.15" step="0.01" value="0.94" aria-label="Velocidad de lectura"><output id="audio-rate-value">0,94×</output></label>
+    <div class="audio-top"><div><div class="audio-label">ATLAS SONORO · 5.4</div><h2>Escuchar el mundo</h2></div><button id="audio-close" class="audio-x" type="button" aria-label="Cerrar ajustes">×</button></div>
+    <p class="audio-description">Cada lugar tiene su propio pulso. La música acompaña, la voz cuenta; vos elegís cuándo escuchar.</p>
+    <div class="audio-current"><span class="audio-wave" aria-hidden="true">◌ ◦ ◌</span><div><span class="audio-current-eyebrow">PAISAJE ACTUAL</span><strong id="audio-scene-name">—</strong></div></div>
+    <div class="audio-line audio-actions"><button type="button" class="audio-main" id="audio-read-chapter">▶ Narrar historia</button><button type="button" id="audio-read-manifest">Leer manifiesto</button></div>
+    <div class="audio-line"><button type="button" class="audio-ambient-btn" id="audio-ambient" aria-pressed="false">♫ Iniciar paisaje</button><button type="button" id="audio-stop">■ Detener voz</button></div>
+    <div class="audio-settings"><div class="settings-title">Configuración de escucha</div>
+      <label><span>Voz</span><select id="audio-voice" aria-label="Voz de lectura"><option value="">Voz española predeterminada</option></select></label>
+      <label><span>Velocidad</span><input id="audio-rate" type="range" min="0.78" max="1.15" step="0.01" value="0.96" aria-label="Velocidad de lectura"><output id="audio-rate-value">0,96×</output></label>
       <label><span>Volumen de voz</span><input id="audio-voice-volume" type="range" min="20" max="100" step="1" value="90" aria-label="Volumen de voz"><output id="audio-voice-value">90 %</output></label>
-      <label><span>Volumen ambiental</span><input id="audio-ambient-volume" type="range" min="0" max="100" step="1" value="26" aria-label="Volumen del ambiente"><output id="audio-ambient-value">26 %</output></label>
+      <label><span>Volumen ambiente</span><input id="audio-ambient-volume" type="range" min="0" max="100" step="1" value="100" aria-label="Volumen del ambiente"><output id="audio-ambient-value">100 %</output></label>
     </div>
-    <p class="audio-status" id="audio-status" role="status" aria-live="polite">Audio apagado. La lectura sigue disponible en pantalla.</p>
-    <p class="audio-hint">Sin reproducción automática. La voz depende del navegador; para una narración de estudio usaremos audio grabado y subtítulos. El ambiente baja cuando comienza la lectura.</p>`;
+    <p class="audio-status" id="audio-status" role="status" aria-live="polite">El sonido está apagado. Podés leer todo sin escucharlo.</p>
+    <p class="audio-hint">100 % equivale al nivel de mezcla diseñado, no al volumen máximo del dispositivo. La música baja mientras habla la voz. Sin inicio automático.</p>`;
   document.body.append(panel);
-  const get=id=>document.getElementById(id);
-  const status=get('audio-status');
-  const setStatus=t=>status.textContent=t;
+
   const speechAvailable='speechSynthesis' in window && 'SpeechSynthesisUtterance' in window;
   const synth=speechAvailable?window.speechSynthesis:null;
-  let voices=[],gen=0,utter=null,pending=null,ambient=false,ctx=null,bus=null,filter=null,noiseFilter=null,oscillators=[],musicNodes=[],noiseSource=null;
-  const availableVoice=(v)=>v.lang.toLowerCase().startsWith('es');
-  function voicesList(){
+  const status=$('audio-status');
+  const sayStatus=t=>{status.textContent=t};
+  const voices=[];
+  function refreshVoices(){
     if(!synth)return;
-    voices=synth.getVoices().filter(availableVoice);
-    const select=get('audio-voice'),current=select.value;
-    select.replaceChildren(new Option('Voz predeterminada en español',''));
-    voices.sort((a,b)=>{const rank=v=>v.lang.toLowerCase()==='es-ar'?0:v.lang.toLowerCase().startsWith('es-')?1:2;return rank(a)-rank(b)});
-    voices.forEach(v=>select.add(new Option(v.name+' · '+v.lang, v.voiceURI)));
-    select.value=voices.some(v=>v.voiceURI===current)?current:'';
-    if(!current && voices.length){const prefer=voices.find(v=>v.lang.toLowerCase()==='es-ar')||voices[0];select.value=prefer.voiceURI}
-  }
-  if(synth){voicesList();synth.addEventListener('voiceschanged',voicesList)}
-  else {get('audio-read-chapter').disabled=true;get('audio-read-manifest').disabled=true;setStatus('Este navegador no ofrece narración. Los textos siguen disponibles.');}
-  const noteFreq=[ [55,82.4,110], [73.4,110,146.8], [65.4,98,130.8], [82.4,123.5,164.8], [55,98,146.8], [73.4,123.5,184.9], [65.4,110,196] ];
-  function createAudio(){
-    if(ctx)return;
-    const AC=window.AudioContext||window.webkitAudioContext;
-    if(!AC){setStatus('El ambiente musical no está disponible en este navegador.');return}
-    ctx=new AC();bus=ctx.createGain();bus.gain.value=0;bus.connect(ctx.destination);
-    filter=ctx.createBiquadFilter();filter.type='lowpass';filter.frequency.value=520;filter.Q.value=0.32;filter.connect(bus);
-    const [a,b,c]=noteFreq[0];
-    [a,b,c].forEach((f,i)=>{
-      const osc=ctx.createOscillator(),gain=ctx.createGain();osc.type=i===2?'triangle':'sine';osc.frequency.value=f;
-      gain.gain.value=[0.13,0.065,0.025][i];osc.connect(gain);gain.connect(filter);osc.start();oscillators.push(osc);musicNodes.push(gain);
+    const previous=$('audio-voice').value;
+    const found=synth.getVoices().filter(v=>/^es\b|^es-/i.test(v.lang));
+    found.sort((a,b)=>{
+      const rank=v=>/es-AR/i.test(v.lang)?0:/google|natural|neural|premium/i.test(v.name)?1:2;
+      return rank(a)-rank(b)
     });
-    // Brown noise: subtle broadband texture, no random blips interrupting narration.
-    const buffer=ctx.createBuffer(1,ctx.sampleRate*2,ctx.sampleRate),data=buffer.getChannelData(0);
-    let brown=0;for(let i=0;i<data.length;i++){brown=(brown+0.015*(Math.random()*2-1))/1.018;data[i]=brown*.55}
-    noiseSource=ctx.createBufferSource();noiseSource.buffer=buffer;noiseSource.loop=true;
-    noiseFilter=ctx.createBiquadFilter();noiseFilter.type='bandpass';noiseFilter.frequency.value=450;noiseFilter.Q.value=.5;
-    const g=ctx.createGain();g.gain.value=.08;noiseSource.connect(noiseFilter);noiseFilter.connect(g);g.connect(filter);noiseSource.start();musicNodes.push(g);
-    applyMusic();updateAct();
+    voices.splice(0,voices.length,...found);
+    const select=$('audio-voice');select.replaceChildren(new Option('Voz predeterminada en español',''));
+    found.forEach(v=>select.add(new Option(v.name+' · '+v.lang,v.voiceURI)));
+    select.value=found.some(v=>v.voiceURI===previous)?previous:found.length?found[0].voiceURI:'';
   }
-  function musicTarget(){let value=+get('audio-ambient-volume').value/100;return ambient?value*.7*(synth?.speaking?0.19:1):0}
-  function applyMusic(){if(ctx&&bus){bus.gain.cancelScheduledValues(ctx.currentTime);bus.gain.setTargetAtTime(musicTarget(),ctx.currentTime,.48)}}
-  function updateAct(){if(!ctx)return;const ch=chapters[index]||chapters[0];const idx=Math.max(0,['I','II','III','IV','V','VI','VII'].indexOf(ch.part));
-    noteFreq[idx].forEach((f,i)=>oscillators[i]?.frequency.setTargetAtTime(f,ctx.currentTime,2.3));
-    filter.frequency.setTargetAtTime([480,790,550,480,320,680,940][idx],ctx.currentTime,2.1);
-    noiseFilter.frequency.setTargetAtTime([220,1300,490,770,170,380,1000][idx],ctx.currentTime,2.1);
+  if(synth){refreshVoices();synth.addEventListener?.('voiceschanged',refreshVoices)}
+  else{$('audio-read-chapter').disabled=true;$('audio-read-manifest').disabled=true;quick.disabled=true;sayStatus('Voz no disponible en este navegador; el texto siempre está accesible.')}
+
+  // Seven atmospheric palettes; 36 reproducible motifs are derived from chapter IDs.
+  const palettes={
+    I:{name:'Tiempo profundo · mineral',root:41,bpm:58,noise:190,noiseType:'lowpass',air:0.044,pad:0.057,bright:410,echo:0.20,mode:[0,2,3,7,10],pulse:'stone'},
+    II:{name:'Otras vidas · orgánico',root:53,bpm:73,noise:1150,noiseType:'bandpass',air:0.043,pad:0.037,bright:1500,echo:0.12,mode:[0,2,5,7,9],pulse:'leaf'},
+    III:{name:'Estar vivos · pulso',root:48,bpm:67,noise:490,noiseType:'lowpass',air:0.019,pad:0.055,bright:740,echo:0.13,mode:[0,3,5,7,10],pulse:'heart'},
+    IV:{name:'Convivir · encuentro',root:50,bpm:69,noise:680,noiseType:'bandpass',air:0.030,pad:0.047,bright:980,echo:0.19,mode:[0,2,4,7,9],pulse:'dialog'},
+    V:{name:'La huella · territorio',root:41,bpm:54,noise:240,noiseType:'lowpass',air:0.056,pad:0.054,bright:450,echo:0.17,mode:[0,3,5,7,10],pulse:'earth'},
+    VI:{name:'Decidir · horizonte',root:54,bpm:79,noise:820,noiseType:'highpass',air:0.018,pad:0.038,bright:1800,echo:0.24,mode:[0,2,4,7,11],pulse:'light'},
+    VII:{name:'Encontrarnos · esperanza',root:51,bpm:74,noise:1090,noiseType:'bandpass',air:0.020,pad:0.042,bright:1600,echo:0.26,mode:[0,2,4,7,9],pulse:'together'}
+  };
+  const fq=(midi)=>440*Math.pow(2,(midi-69)/12);
+  function hash(str){let x=2166136261;for(let i=0;i<str.length;i++){x^=str.charCodeAt(i);x=Math.imul(x,16777619)}return x>>>0}
+  const getChapter=()=>chapters[index]||chapters[0];
+  const getSceneIndex=()=>Math.max(0,index);
+  function sceneLabel(){const c=getChapter(),palette=palettes[c.part]||palettes.I;return `${String(index+1).padStart(2,'0')} / 36 · ${palette.name}`}
+  $('audio-scene-name').textContent=sceneLabel();
+
+  let ctx=null,master=null,mix=null,delay=null,delaySend=null,activeBed=null,oldBeds=[],scheduler=null;
+  let ambient=false,speaking=false,voiceSequence=0,utterance=null,chapterSeen=getChapter()?.id;
+  function createEngine(){
+    if(ctx)return true;
+    const AC=window.AudioContext||window.webkitAudioContext;
+    if(!AC){sayStatus('Este navegador no permite generar audio.');return false}
+    ctx=new AC({latencyHint:'interactive'});
+    master=ctx.createDynamicsCompressor();
+    master.threshold.value=-18;master.knee.value=20;master.ratio.value=7;master.attack.value=0.008;master.release.value=.35;
+    const safety=ctx.createGain();safety.gain.value=.40;
+    master.connect(safety);safety.connect(ctx.destination);
+    mix=ctx.createGain();mix.gain.value=0;mix.connect(master);
+    delay=ctx.createDelay(1.1);delay.delayTime.value=.36;
+    const feedback=ctx.createGain();feedback.gain.value=.16;
+    delaySend=ctx.createGain();delaySend.gain.value=.14;
+    delaySend.connect(delay);delay.connect(feedback);feedback.connect(delay);
+    delay.connect(mix);
+    // A small, reusable noise texture; generated entirely in the browser.
+    return true;
   }
-  let observedChapter=null;const observer=new MutationObserver(()=>{updateAct();const current=chapters[index]?.id;if(observedChapter && current!==observedChapter && synth?.speaking){stopSpeech();setStatus('Cambiaste de capítulo. La lectura anterior se detuvo.')}observedChapter=current});const counter=get('chapter-index');observedChapter=chapters[index]?.id;if(counter)observer.observe(counter,{childList:true,subtree:true});
-  function stopSpeech(){gen++;if(pending)clearTimeout(pending);pending=null;
-    if(synth){synth.cancel();synth.resume()}utter=null;applyMusic();}
-  function chunks(parts){
-    let out=[];for(const part of parts){if(part.length<200){out.push(part);continue}
-      const sentences=part.split(/(?<=[.!?…])\s+(?=[¿¡A-ZÁÉÍÓÚÜ0-9])/u).filter(Boolean);
-      for(const sent of sentences){if(sent.length<200){out.push(sent);continue}
-        for(let p=0;p<sent.length;p+=180)out.push(sent.slice(p,p+180));
-      }}return out.filter(Boolean);
+  const fade=(param,to,seconds=.7)=>{
+    if(!ctx)return;
+    param.cancelScheduledValues(ctx.currentTime);
+    param.setTargetAtTime(to,ctx.currentTime,Math.max(.025,seconds/4));
+  };
+  function targetMix(){return ambient?Number($('audio-ambient-volume').value)/100*(speaking?.24:1):0}
+  function setMix(){if(mix)fade(mix.gain,targetMix(),.85)}
+  function createNoise(){
+    const buffer=ctx.createBuffer(1,Math.round(ctx.sampleRate*2),ctx.sampleRate);
+    const samples=buffer.getChannelData(0);let state=0;
+    for(let i=0;i<samples.length;i++){
+      state=(state+.018*(Math.random()*2-1))/1.025;
+      samples[i]=state*2.2;
+    }
+    return buffer;
   }
-  function readParts(parts){
+  let noiseBuffer=null;
+  function createBed(c){
+    const palette=palettes[c.part]||palettes.I,seed=hash(c.id),motion=seed%5-2,root=palette.root+motion;
+    const gain=ctx.createGain();gain.gain.value=0;gain.connect(mix);
+    const padFilter=ctx.createBiquadFilter();padFilter.type='lowpass';padFilter.frequency.value=palette.bright;padFilter.Q.value=.54;padFilter.connect(gain);
+    const owned=[];
+    // Shared pentatonic/mode harmonics with a chapter-specific voicing.
+    const intervals=[0,palette.mode[(seed%3)+1],7,12];
+    intervals.forEach((off,i)=>{
+      const o=ctx.createOscillator(),g=ctx.createGain();o.type=i===3?'triangle':'sine';
+      o.frequency.value=fq(root+off);o.detune.value=(i%2?-3:3)+(seed%7-3);
+      g.gain.value=palette.pad*[.95,.55,.31,.18][i];o.connect(g);g.connect(padFilter);o.start();owned.push(o,g);
+    });
+    if(!noiseBuffer)noiseBuffer=createNoise();
+    const n=ctx.createBufferSource(),noiseFilter=ctx.createBiquadFilter(),ng=ctx.createGain();
+    n.buffer=noiseBuffer;n.loop=true;noiseFilter.type=palette.noiseType;noiseFilter.frequency.value=palette.noise+((seed%7)-3)*35;noiseFilter.Q.value=.6;
+    ng.gain.value=palette.air;n.connect(noiseFilter);noiseFilter.connect(ng);ng.connect(gain);n.start();owned.push(n,noiseFilter,ng);
+    const lfo=ctx.createOscillator(),lfoGain=ctx.createGain();lfo.frequency.value=.032+(seed%4)*.013;lfoGain.gain.value=palette.bright*.16;
+    lfo.connect(lfoGain);lfoGain.connect(padFilter.frequency);lfo.start();owned.push(lfo,lfoGain,padFilter);
+    const bed={id:c.id,part:c.part,seed,root,palette,gain,owned,next:ctx.currentTime+.08,step:0,live:true,cleanupTimer:null};
+    fade(gain.gain,1,3.6);
+    return bed;
+  }
+  function disposeBed(bed){
+    if(!bed||!bed.live)return;bed.live=false;clearTimeout(bed.cleanupTimer);
+    for(const node of bed.owned){
+      try{if(typeof node.stop==='function')node.stop()}catch{};
+      try{node.disconnect()}catch{};
+    }
+    try{bed.gain.disconnect()}catch{}
+    oldBeds=oldBeds.filter(x=>x!==bed);
+    if(activeBed===bed)activeBed=null;
+  }
+  function retire(bed){if(!bed||!bed.live)return;
+    fade(bed.gain.gain,0,3.6);oldBeds.push(bed);
+    bed.cleanupTimer=setTimeout(()=>disposeBed(bed),5400);
+  }
+  function startBedForChapter(){
+    if(!ctx||!ambient)return;
+    const c=getChapter();if(activeBed?.id===c.id)return;
+    if(activeBed)retire(activeBed);
+    activeBed=createBed(c);
+  }
+  function stopScheduler(){if(scheduler){clearInterval(scheduler);scheduler=null}}
+  function playTone(bed,time,step){
+    if(!bed.live||!ambient)return;
+    const p=bed.palette,idx=step%8;
+    // Each chapter has a different deterministic phrase; no random interrupting blips.
+    const sequence=[0,2,4,1,3,4,2,1];
+    const toneIndex=(sequence[idx]+(bed.seed%5))%p.mode.length;
+    const octave=(step%7===0)?12:(step%9===5)?24:12;
+    const base=bed.root+p.mode[toneIndex]+octave;
+    const d=(60/p.bpm)*((p.pulse==='light')?.62:p.pulse==='leaf'?.8:1.4);
+    const o=ctx.createOscillator(),g=ctx.createGain();
+    o.type=p.pulse==='stone'?'sine':p.pulse==='earth'?'triangle':idx%3===0?'triangle':'sine';
+    o.frequency.setValueAtTime(fq(base),time);
+    g.gain.setValueAtTime(.00001,time);
+    g.gain.linearRampToValueAtTime(p.pulse==='leaf'?.034:p.pulse==='light'?.026:.021,time+.09);
+    g.gain.exponentialRampToValueAtTime(.00001,time+Math.max(.6,d*.92));
+    o.connect(g);
+    const pan=ctx.createStereoPanner?.();
+    if(pan){pan.pan.value=(idx%2?-.38:.38);g.connect(pan);pan.connect(bed.gain);pan.connect(delaySend)}
+    else{g.connect(bed.gain);g.connect(delaySend)}
+    o.start(time);o.stop(time+Math.max(.7,d)+.06);
+    o.onended=()=>{try{o.disconnect();g.disconnect();pan?.disconnect()}catch{}};
+    // restrained rhythmic signature per act; never loud attacks under speech.
+    if((p.pulse==='heart'&&idx===0)||(p.pulse==='earth'&&idx===0)){
+      const low=ctx.createOscillator(),lg=ctx.createGain();low.type='sine';low.frequency.value=fq(bed.root-14);
+      lg.gain.setValueAtTime(.00001,time);lg.gain.linearRampToValueAtTime(.044,time+.035);
+      lg.gain.exponentialRampToValueAtTime(.00001,time+.31);
+      low.connect(lg);lg.connect(bed.gain);low.start(time);low.stop(time+.35);
+      low.onended=()=>{try{low.disconnect();lg.disconnect()}catch{}};
+    }
+    bed.next=time+d*((idx===3||idx===7)?1.7:1);
+    bed.step++;
+  }
+  function tick(){if(!ctx||!ambient||!activeBed||ctx.state!=='running')return;
+    const now=ctx.currentTime;let safety=0;
+    while(activeBed.next<now+.28&&safety++<4)playTone(activeBed,activeBed.next,activeBed.step);
+  }
+  async function startAmbient(){
+    if(!createEngine())return;
+    try{await ctx.resume()}catch(e){sayStatus('No se pudo iniciar el audio: '+e.message);return}
+    ambient=true;startBedForChapter();setMix();
+    if(!scheduler)scheduler=setInterval(tick,65);
+    $('audio-ambient').setAttribute('aria-pressed','true');
+    $('audio-ambient').textContent='Ⅱ Apagar paisaje';
+    trigger.classList.add('is-on');
+    sayStatus('Paisaje activo · '+sceneLabel());
+  }
+  function stopAmbient(){ambient=false;setMix();stopScheduler();
+    if(activeBed){retire(activeBed);activeBed=null}
+    $('audio-ambient').setAttribute('aria-pressed','false');
+    $('audio-ambient').textContent='♫ Iniciar paisaje';
+    trigger.classList.remove('is-on');
+    sayStatus('Paisaje musical apagado.');
+  }
+  $('audio-ambient').addEventListener('click',()=>ambient?stopAmbient():void startAmbient());
+
+  function updateScene(){
+    $('audio-scene-name').textContent=sceneLabel();
+    const now=getChapter()?.id;
+    if(now===chapterSeen)return;
+    chapterSeen=now;
+    if(speaking)stopSpeech('Cambio de historia. La voz se detuvo.');
+    startBedForChapter();
+    if(ambient)sayStatus('Nuevo paisaje · '+sceneLabel());
+  }
+  const observer=new MutationObserver(updateScene);
+  observer.observe(heading,{childList:true,subtree:true});
+  // Also detect history navigation programmatically; no changes to Atlas rendering.
+  window.addEventListener('hashchange',()=>setTimeout(updateScene,80));
+
+  // A longer utterance has fewer artificial gaps; split only if necessary.
+  function speechChunks(text){
+    const clean=text.replace(/\s+/g,' ').trim();
+    if(clean.length<=1250)return [clean];
+    const sentences=clean.match(/[^.!?¿¡…]+[.!?…]+|[^.!?¿¡…]+$/g)||[clean];
+    const out=[];let current='';
+    for(const sentence of sentences){
+      if((current+' '+sentence).length>1150&&current){out.push(current.trim());current=''}
+      if(sentence.length>1150){for(let i=0;i<sentence.length;i+=1000)out.push(sentence.slice(i,i+1000));continue}
+      current+=' '+sentence;
+    }
+    if(current.trim())out.push(current.trim());return out;
+  }
+  function storyText(){
+    const c=getChapter();
+    return [`Acto ${c.part}: ${c.place}.`,c.question,c.caption,`El dato: ${c.stat}.`,...(c.paragraphs||[]),c.question2].filter(Boolean).join('  ');
+  }
+  function manifestVisible(){return !$('manifest-stage')?.hidden}
+  function manifestText(){
+    if(typeof manifesto==='undefined')return storyText();
+    const selected=manifestVisible()?[manifesto[manifestIndex]]:manifesto;
+    return selected.map(x=>[x.title,...x.body,x.whisper].filter(Boolean).join('  ')).join('  ')
+  }
+  function updateVoiceButtons(on){
+    speaking=on;quick.setAttribute('aria-pressed',String(on));
+    quick.innerHTML=on?'<span class="quick-play" aria-hidden="true">■</span><span class="quick-label">Detener voz</span>':'<span class="quick-play" aria-hidden="true">▶</span><span class="quick-label">Escuchar voz</span>';
+    quick.setAttribute('aria-label',on?'Detener narración':'Iniciar narración del capítulo o manifiesto');
+    $('audio-read-chapter').setAttribute('aria-pressed',String(on));
+    setMix();
+  }
+  function stopSpeech(message){
+    voiceSequence++;
+    if(synth){try{synth.cancel()}catch{}}
+    utterance=null;updateVoiceButtons(false);
+    if(message)sayStatus(message);
+  }
+  function read(text,label='Narración'){
     if(!speechAvailable)return;
-    stopSpeech();const batch=gen,segments=chunks(parts);
-    if(!segments.length)return;
-    get('audio-read-chapter').setAttribute('aria-pressed','true');
-    if(voices.length===0)voicesList();
-    let pos=0;
-    const say=()=>{
-      if(batch!==gen||pos>=segments.length){if(batch===gen){setStatus('Lectura terminada. Podés volver a escucharla.');get('audio-read-chapter').setAttribute('aria-pressed','false');applyMusic()}return}
-      const item=segments[pos++],u=new SpeechSynthesisUtterance(item);utter=u;u.lang='es-AR';u.pitch=1;u.rate=+get('audio-rate').value;u.volume=(+get('audio-voice-volume').value/100);
-      const picked=voices.find(v=>v.voiceURI===get('audio-voice').value);if(picked)u.voice=picked;
-      u.onstart=()=>{if(batch!==gen)return;setStatus(`Narrando ${pos} de ${segments.length} · ${Math.round(100*pos/segments.length)} %`);applyMusic()};
-      u.onend=()=>{if(batch!==gen)return;pending=setTimeout(say, Math.min(400,item.length>100?270:190))};
-      u.onerror=(e)=>{if(batch!==gen)return;setStatus(`La voz se interrumpió (${e.error||'error'}). Probá con otra voz.`);get('audio-read-chapter').setAttribute('aria-pressed','false');applyMusic()};
-      // A short delay after a previous cancel helps some mobile speech engines reset.
+    stopSpeech();
+    const chunks=speechChunks(text),ticket=voiceSequence;
+    if(!chunks.length)return;
+    refreshVoices();
+    updateVoiceButtons(true);
+    sayStatus('Iniciando '+label.toLowerCase()+'…');
+    let i=0;
+    const next=()=>{
+      if(ticket!==voiceSequence)return;
+      if(i>=chunks.length){stopSpeech('Lectura finalizada.');return}
+      const u=new SpeechSynthesisUtterance(chunks[i++]);utterance=u;
+      u.lang='es-AR';u.pitch=1;u.rate=Number($('audio-rate').value);u.volume=Number($('audio-voice-volume').value)/100;
+      const chosen=voices.find(v=>v.voiceURI===$('audio-voice').value);if(chosen)u.voice=chosen;
+      u.onstart=()=>{if(ticket!==voiceSequence)return;sayStatus(`${label} · ${i}/${chunks.length}`)};
+      u.onend=()=>{if(ticket===voiceSequence)next()};
+      u.onerror=(e)=>{if(ticket===voiceSequence)stopSpeech('El navegador interrumpió la lectura ('+(e.error||'error')+'). Elegí otra voz.')} ;
       synth.speak(u);
     };
-    if(ctx)void ctx.resume();setStatus('Preparando narración...');pending=setTimeout(say,130);
+    next();
   }
-  function chapterSegments(){
-    const c=chapters[index]||chapters[0];
-    return [`Acto ${c.part}. ${c.place}.`,c.question,c.caption,`El dato: ${c.stat}.`,...(c.paragraphs||[]).slice(0,3),c.question2||''].filter(Boolean);
-  }
-  get('audio-read-chapter').onclick=()=>readParts(chapterSegments());
-  get('audio-read-manifest').onclick=()=>{
-    const m=(typeof manifesto!=='undefined')?manifesto[manifestIndex]:null;
-    if(!m){setStatus('Abrí el manifiesto para escuchar la escena.');return}
-    readParts([m.title,...m.body,m.whisper].filter(Boolean));
-  };
-  get('audio-ambient').onclick=async()=>{
-    ambient=!ambient;createAudio();if(ctx)await ctx.resume();applyMusic();
-    get('audio-ambient').setAttribute('aria-pressed',String(ambient));get('audio-ambient').textContent=ambient?'Ⅱ Apagar ambiente':'♫ Iniciar ambiente';
-    setStatus(ambient?'Paisaje sonoro activo.':'Ambiente apagado.');
-  };
-  get('audio-voice-volume').oninput=()=>get('audio-voice-value').textContent=get('audio-voice-volume').value+' %';
-  get('audio-ambient-volume').oninput=()=>{get('audio-ambient-value').textContent=get('audio-ambient-volume').value+' %';applyMusic()};
-  get('audio-rate').oninput=()=>get('audio-rate-value').textContent=(+get('audio-rate').value).toFixed(2).replace('.',',')+'×';
-  get('audio-stop').onclick=()=>{stopSpeech();get('audio-read-chapter').setAttribute('aria-pressed','false');setStatus('Voz detenida.');};
-  function closePanel(){panel.hidden=true;trigger.setAttribute('aria-expanded','false');trigger.focus()}
-  trigger.onclick=()=>{panel.hidden=!panel.hidden;trigger.setAttribute('aria-expanded',String(!panel.hidden));if(!panel.hidden)get('audio-close').focus()};
-  get('audio-close').onclick=closePanel;
-  document.addEventListener('keydown',e=>{if(e.key==='Escape'&&!panel.hidden){e.preventDefault();closePanel()}});
-  document.addEventListener('visibilitychange',()=>{if(document.hidden){stopSpeech();if(ctx){ambient=false;applyMusic();get('audio-ambient').textContent='♫ Iniciar ambiente';get('audio-ambient').setAttribute('aria-pressed','false')}}});
-  window.addEventListener('pagehide',()=>{stopSpeech();if(ctx){void ctx.close();ctx=null}});
-})();
+  const readCurrent=()=>manifestVisible()?read(manifestText(),'Manifiesto'):read(storyText(),'Historia');
+  quick.onclick=()=>speaking?stopSpeech('Voz detenida.'):readCurrent();
+  $('audio-read-chapter').onclick=()=>read(storyText(),'Historia');
+  $('audio-read-manifest').onclick=()=>read(manifestText(),'Manifiesto');
+  $('audio-stop').onclick=()=>stopSpeech('Voz detenida.');
 
+  // Set every stage button to use the same voice control, without hiding settings.
+  const manifestActions=document.querySelector('.manifest-actions');
+  if(manifestActions){
+    const narrate=el('button','manifest-narrate',{type:'button','aria-label':'Escuchar el manifiesto'});
+    narrate.textContent='▶ Escuchar texto';
+    narrate.addEventListener('click',()=>speaking?stopSpeech('Voz detenida.'):read(manifestText(),'Manifiesto'));
+    manifestActions.insertBefore(narrate,manifestActions.firstChild);
+  }
+  $('audio-voice-volume').addEventListener('input',()=>{$('audio-voice-value').textContent=$('audio-voice-volume').value+' %'});
+  $('audio-ambient-volume').addEventListener('input',()=>{$('audio-ambient-value').textContent=$('audio-ambient-volume').value+' %';setMix()});
+  $('audio-rate').addEventListener('input',()=>{$('audio-rate-value').textContent=Number($('audio-rate').value).toFixed(2).replace('.',',')+'×'});
+  function closePanel(){panel.hidden=true;trigger.setAttribute('aria-expanded','false');quick.classList.remove('hidden-by-panel');trigger.focus()}
+  function togglePanel(){panel.hidden=!panel.hidden;trigger.setAttribute('aria-expanded',String(!panel.hidden));quick.classList.toggle('hidden-by-panel',!panel.hidden);if(!panel.hidden)$('audio-close').focus()}
+  trigger.onclick=togglePanel;$('audio-close').onclick=closePanel;
+  document.addEventListener('keydown',e=>{if(e.key==='Escape'&&!panel.hidden){e.preventDefault();closePanel()}});
+  document.addEventListener('visibilitychange',()=>{if(document.hidden){stopSpeech();if(ambient)stopAmbient()}});
+  window.addEventListener('pagehide',()=>{stopSpeech();if(ambient)stopAmbient();if(activeBed)disposeBed(activeBed);for(const bed of [...oldBeds])disposeBed(bed);stopScheduler();if(ctx){void ctx.close();ctx=null}});
+})();
 </script>
 </body></html>
